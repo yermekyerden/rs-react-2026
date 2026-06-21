@@ -1,11 +1,12 @@
-import CharacterSearchForm from '@/features/character-search/ui/CharacterSearchForm/CharacterSearchForm';
+import { loadCharacterDetails } from '@/features/character-details/model/loadCharacterDetails';
 import { loadCharacterSearchPage } from '@/features/character-search/model/loadCharacterSearchPage';
 import { parseCharacterSearchParams } from '@/features/character-search/model/character-search-params.parsers';
-import { loadCharacterDetails } from '@/features/character-details/model/loadCharacterDetails';
+import type { NextSearchParams } from '@/features/character-search/model/character-search-params.types';
+import CharacterSearchForm from '@/features/character-search/ui/CharacterSearchForm/CharacterSearchForm';
+import { parseSelectedCharacterIds } from '@/features/character-selection/model/character-selection.parsers';
 import CharacterDetailsPanel from '@/widgets/character-details-panel/CharacterDetailsPanel';
 import CharacterResults from '@/widgets/character-results/CharacterResults';
 import { EXPLORER_INTRO_CLASS_NAMES } from '@/widgets/explorer-intro/explorer-intro.styles';
-import type { NextSearchParams } from '@/features/character-search/model/character-search-params.types';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 interface ExplorerPageProps {
@@ -25,6 +26,8 @@ export default async function ExplorerPage({
   setRequestLocale(locale);
 
   const parsedSearchParams = parseCharacterSearchParams(rawSearchParams);
+  const selectedCharacterIds = parseSelectedCharacterIds(rawSearchParams);
+
   const characterResultsState =
     await loadCharacterSearchPage(parsedSearchParams);
   const characterDetailsState = await loadCharacterDetails(
@@ -62,6 +65,7 @@ export default async function ExplorerPage({
 
       <CharacterResults
         searchParams={parsedSearchParams}
+        selectedCharacterIds={selectedCharacterIds}
         state={characterResultsState}
       />
     </main>

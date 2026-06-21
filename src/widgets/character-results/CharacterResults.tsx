@@ -1,19 +1,35 @@
-import { Link } from '@/i18n/navigation';
-import { CharacterCard, CHARACTER_DEFAULTS } from '@/entities/character';
-import type { CharacterResultsState } from '@/features/character-search/model/character-search-results.types';
+import {
+  CharacterCard,
+  CHARACTER_DEFAULTS,
+  type CharacterCardCopy,
+  type CharacterCardModel,
+} from '@/entities/character';
 import { createCharacterSearchHref } from '@/features/character-search/model/character-search-params.builders';
 import type { CharacterSearchParams } from '@/features/character-search/model/character-search-params.types';
+import type { CharacterResultsState } from '@/features/character-search/model/character-search-results.types';
+import {
+  CHARACTER_SELECTION,
+  CHARACTER_SELECTION_PARAM,
+} from '@/features/character-selection/model/character-selection.constants';
+import { createCharacterSelectionHref } from '@/features/character-selection/model/character-selection.builders';
+import CharacterSelectionToggle from '@/features/character-selection/ui/CharacterSelectionToggle/CharacterSelectionToggle';
+import { CHARACTER_CSV_EXPORT } from '@/features/csv-export/model/character-csv.constants';
+import { Link } from '@/i18n/navigation';
 import { getTranslations } from 'next-intl/server';
 import { CHARACTER_RESULTS } from './CharacterResults.constants';
 import { CHARACTER_RESULTS_CLASS_NAMES } from './CharacterResults.styles';
 
+type Translator = Awaited<ReturnType<typeof getTranslations>>;
+
 export interface CharacterResultsProps {
   searchParams: CharacterSearchParams;
+  selectedCharacterIds: number[];
   state: CharacterResultsState;
 }
 
 export default async function CharacterResults({
   searchParams,
+  selectedCharacterIds,
   state,
 }: CharacterResultsProps) {
   const t = await getTranslations('CharacterResults');
@@ -23,17 +39,17 @@ export default async function CharacterResults({
     return (
       <section
         className={CHARACTER_RESULTS_CLASS_NAMES.panel}
-        aria-labelledby="character-results-title"
+        aria-labelledby={CHARACTER_RESULTS.titleId}
       >
         <header className={CHARACTER_RESULTS_CLASS_NAMES.header}>
-          <div>
+          <div className={CHARACTER_RESULTS_CLASS_NAMES.headerCopy}>
             <p className={CHARACTER_RESULTS_CLASS_NAMES.status}>
               {t('unstableStatus')}
             </p>
 
             <h2
               className={CHARACTER_RESULTS_CLASS_NAMES.title}
-              id="character-results-title"
+              id={CHARACTER_RESULTS.titleId}
             >
               {t('title')}
             </h2>
@@ -57,6 +73,7 @@ export default async function CharacterResults({
 
   const { characterPage } = state;
   const hasCharacters = characterPage.characters.length > 0;
+  const hasSelectedCharacters = selectedCharacterIds.length > 0;
   const hasPreviousPage =
     characterPage.currentPage > CHARACTER_DEFAULTS.firstPage;
   const hasNextPage = characterPage.currentPage < characterPage.totalPages;
@@ -64,10 +81,10 @@ export default async function CharacterResults({
   return (
     <section
       className={CHARACTER_RESULTS_CLASS_NAMES.panel}
-      aria-labelledby="character-results-title"
+      aria-labelledby={CHARACTER_RESULTS.titleId}
     >
       <header className={CHARACTER_RESULTS_CLASS_NAMES.header}>
-        <div>
+        <div className={CHARACTER_RESULTS_CLASS_NAMES.headerCopy}>
           <p className={CHARACTER_RESULTS_CLASS_NAMES.status}>
             {createStatusText({
               currentPage: characterPage.currentPage,
@@ -79,24 +96,43 @@ export default async function CharacterResults({
 
           <h2
             className={CHARACTER_RESULTS_CLASS_NAMES.title}
-            id="character-results-title"
+            id={CHARACTER_RESULTS.titleId}
           >
             {t('title')}
           </h2>
         </div>
 
-        <p className={CHARACTER_RESULTS_CLASS_NAMES.summary}>
-          {t('summary', {
-            totalCount: characterPage.totalCount,
-          })}
-        </p>
+        <div className={CHARACTER_RESULTS_CLASS_NAMES.headerActions}>
+          <p className={CHARACTER_RESULTS_CLASS_NAMES.summary}>
+            {t('summary', {
+              totalCount: characterPage.totalCount,
+            })}
+          </p>
+
+          {hasSelectedCharacters ? (
+            <a
+              className={CHARACTER_RESULTS_CLASS_NAMES.exportLink}
+              href={createCsvExportHref(selectedCharacterIds)}
+            >
+              {t('exportSelected')}
+            </a>
+          ) : null}
+        </div>
       </header>
 
       {hasCharacters ? (
         <ul className={CHARACTER_RESULTS_CLASS_NAMES.grid}>
           {characterPage.characters.map((character, characterIndex) => {
+            const isSelected = selectedCharacterIds.includes(character.id);
             const detailsHref = createCharacterSearchHref({
               detailsCharacterId: character.id,
+              page: characterPage.currentPage,
+              searchTerm: searchParams.searchTerm,
+            });
+            const selectionHref = createCharacterSelectionHref({
+              characterId: character.id,
+              currentSelectedCharacterIds: selectedCharacterIds,
+              detailsCharacterId: searchParams.detailsCharacterId,
               page: characterPage.currentPage,
               searchTerm: searchParams.searchTerm,
             });
@@ -109,23 +145,20 @@ export default async function CharacterResults({
                   isPriorityImage={
                     characterIndex === CHARACTER_RESULTS.firstVisibleCardIndex
                   }
-                  copy={{
-                    cardAriaLabel: characterCardTranslations('cardAriaLabel', {
-                      characterName: character.name,
-                    }),
-                    genderLabel: characterCardTranslations('genderLabel'),
-                    locationLabel: characterCardTranslations('locationLabel'),
-                    openDetailsLabel: characterCardTranslations(
-                      'openDetailsLabel',
-                      {
-                        characterName: character.name,
-                      }
-                    ),
-                    openDetailsText:
-                      characterCardTranslations('openDetailsText'),
-                    speciesLabel: characterCardTranslations('speciesLabel'),
-                  }}
+                  copy={createCharacterCardCopy({
+                    character,
+                    translations: characterCardTranslations,
+                  })}
                 />
+
+                <div className={CHARACTER_RESULTS_CLASS_NAMES.cardActions}>
+                  <CharacterSelectionToggle
+                    href={selectionHref}
+                    isSelected={isSelected}
+                    selectedLabel={characterCardTranslations('selectedText')}
+                    unselectedLabel={characterCardTranslations('selectText')}
+                  />
+                </div>
               </li>
             );
           })}
@@ -191,7 +224,12 @@ interface CreateStatusTextOptions {
   currentPage: number;
   searchTerm: string;
   totalPages: number;
-  t: Awaited<ReturnType<typeof getTranslations>>;
+  t: Translator;
+}
+
+interface CreateCharacterCardCopyOptions {
+  character: CharacterCardModel;
+  translations: Translator;
 }
 
 function createStatusText({
@@ -212,4 +250,33 @@ function createStatusText({
     searchTerm,
     totalPages,
   });
+}
+
+function createCharacterCardCopy({
+  character,
+  translations,
+}: CreateCharacterCardCopyOptions): CharacterCardCopy {
+  return {
+    cardAriaLabel: translations('cardAriaLabel', {
+      characterName: character.name,
+    }),
+    genderLabel: translations('genderLabel'),
+    locationLabel: translations('locationLabel'),
+    openDetailsLabel: translations('openDetailsLabel', {
+      characterName: character.name,
+    }),
+    openDetailsText: translations('openDetailsText'),
+    speciesLabel: translations('speciesLabel'),
+  };
+}
+
+function createCsvExportHref(selectedCharacterIds: number[]): string {
+  const searchParams = new URLSearchParams();
+
+  searchParams.set(
+    CHARACTER_SELECTION_PARAM.selected,
+    selectedCharacterIds.join(CHARACTER_SELECTION.separator)
+  );
+
+  return `${CHARACTER_CSV_EXPORT.path}?${searchParams.toString()}`;
 }

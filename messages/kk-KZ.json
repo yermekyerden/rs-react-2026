@@ -44,7 +44,8 @@
     "paginationLabel": "Keiıpker betterı",
     "previousPage": "Aldyñğy",
     "nextPage": "Kelesı",
-    "pageSummary": "{currentPage}/{totalPages} bet"
+    "pageSummary": "{currentPage}/{totalPages} bet",
+    "exportSelected": "Tañdalğandardy CSV retınde eksporttau"
   },
   "CharacterCard": {
     "cardAriaLabel": "{characterName} keiıpker dossier",
@@ -52,7 +53,9 @@
     "genderLabel": "Gender",
     "locationLabel": "Location",
     "openDetailsText": "Dossier aşu",
-    "openDetailsLabel": "{characterName} dossier aşu"
+    "openDetailsLabel": "{characterName} dossier aşu",
+    "selectText": "Tañdau",
+    "selectedText": "Tañdaldy"
   },
   "CharacterDetailsPanel": {
     "eyebrow": "Keiıpker dossier",

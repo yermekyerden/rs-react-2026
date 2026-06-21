@@ -44,7 +44,8 @@
     "paginationLabel": "Character pages",
     "previousPage": "Previous",
     "nextPage": "Next",
-    "pageSummary": "Page {currentPage} of {totalPages}"
+    "pageSummary": "Page {currentPage} of {totalPages}",
+    "exportSelected": "Export selected CSV"
   },
   "CharacterCard": {
     "cardAriaLabel": "{characterName} character dossier",
@@ -52,7 +53,9 @@
     "genderLabel": "Gender",
     "locationLabel": "Location",
     "openDetailsText": "Open dossier",
-    "openDetailsLabel": "Open dossier for {characterName}"
+    "openDetailsLabel": "Open dossier for {characterName}",
+    "selectText": "Select",
+    "selectedText": "Selected"
   },
   "CharacterDetailsPanel": {
     "eyebrow": "Character dossier",
