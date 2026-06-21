@@ -53,5 +53,18 @@
     "locationLabel": "Location",
     "openDetailsText": "Dossier aşu",
     "openDetailsLabel": "{characterName} dossier aşu"
+  },
+  "CharacterDetailsPanel": {
+    "eyebrow": "Keiıpker dossier",
+    "failedEyebrow": "Dossier signaly joğaldy",
+    "failedTitle": "Dossier ashylmady",
+    "speciesLabel": "Türı",
+    "typeLabel": "Type",
+    "genderLabel": "Gender",
+    "originLabel": "Origin",
+    "locationLabel": "Location",
+    "episodesLabel": "Episodes",
+    "episodesValue": "{episodeCount} episode",
+    "closeLink": "Dossier jabu"
   }
 }

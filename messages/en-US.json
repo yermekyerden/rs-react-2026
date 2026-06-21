@@ -53,5 +53,18 @@
     "locationLabel": "Location",
     "openDetailsText": "Open dossier",
     "openDetailsLabel": "Open dossier for {characterName}"
+  },
+  "CharacterDetailsPanel": {
+    "eyebrow": "Character dossier",
+    "failedEyebrow": "Dossier signal lost",
+    "failedTitle": "Could not open dossier",
+    "speciesLabel": "Species",
+    "typeLabel": "Type",
+    "genderLabel": "Gender",
+    "originLabel": "Origin",
+    "locationLabel": "Location",
+    "episodesLabel": "Episodes",
+    "episodesValue": "{episodeCount} episodes",
+    "closeLink": "Close dossier"
   }
 }
