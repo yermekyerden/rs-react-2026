@@ -1,6 +1,9 @@
 export { fetchCharacterDetails, fetchCharacterPage } from './api/characterApi';
 
-export { CHARACTER_STATUS } from './model/character.constants';
+export {
+  CHARACTER_DEFAULTS,
+  CHARACTER_STATUS,
+} from './model/character.constants';
 
 export {
   mapCharacterDtoToCardModel,
@@ -15,3 +18,10 @@ export type {
   CharacterPageRequest,
   CharacterStatus,
 } from './model/character.types';
+
+export { default as CharacterCard } from './ui/CharacterCard/CharacterCard';
+
+export type {
+  CharacterCardCopy,
+  CharacterCardProps,
+} from './ui/CharacterCard/CharacterCard';

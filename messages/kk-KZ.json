@@ -25,5 +25,33 @@
     "title": "Ölşem tabylmady",
     "description": "Portal qate timeline işıne aşyldy. Explorer betıne oralyp, tūraqty ölşemdı qaıta scan jasañyz.",
     "backLink": "Explorer betıne oralu"
+  },
+  "SearchForm": {
+    "label": "Keiıpker aty",
+    "placeholder": "Rick, Morty, Summer dep körıñız...",
+    "hint": "Formany jıberıñız, Portal Lab server-rendered koordinattardy aşady.",
+    "submitButton": "Izdeu"
+  },
+  "CharacterResults": {
+    "title": "Keiıpkerler nätijesı",
+    "summary": "API {totalCount} keiıpker tapty",
+    "browsingStatus": "Ölşemder qaralyp jatyr • {currentPage}/{totalPages} bet",
+    "searchStatus": "Koordinattar bekıtıldı: \"{searchTerm}\" • {currentPage}/{totalPages} bet",
+    "unstableStatus": "Portal tūraqsyz",
+    "errorTitle": "Signal joq",
+    "emptyTitle": "Keiıpkerler jüktelmedı",
+    "emptyDescription": "Portal bos keiıpkerler tızımın qaıtardy.",
+    "paginationLabel": "Keiıpker betterı",
+    "previousPage": "Aldyñğy",
+    "nextPage": "Kelesı",
+    "pageSummary": "{currentPage}/{totalPages} bet"
+  },
+  "CharacterCard": {
+    "cardAriaLabel": "{characterName} keiıpker dossier",
+    "speciesLabel": "Türı",
+    "genderLabel": "Gender",
+    "locationLabel": "Location",
+    "openDetailsText": "Dossier aşu",
+    "openDetailsLabel": "{characterName} dossier aşu"
   }
 }

@@ -25,5 +25,33 @@
     "title": "Dimension not found",
     "description": "The portal opened in the wrong timeline. Return to the explorer and scan a stable dimension.",
     "backLink": "Back to Explorer"
+  },
+  "SearchForm": {
+    "label": "Character name",
+    "placeholder": "Try Rick, Morty, Summer...",
+    "hint": "Submit the form to open server-rendered portal coordinates.",
+    "submitButton": "Search"
+  },
+  "CharacterResults": {
+    "title": "Character results",
+    "summary": "{totalCount} characters detected by the API",
+    "browsingStatus": "Browsing dimensions • Page {currentPage} of {totalPages}",
+    "searchStatus": "Coordinates locked: \"{searchTerm}\" • Page {currentPage} of {totalPages}",
+    "unstableStatus": "Portal unstable",
+    "errorTitle": "No signal",
+    "emptyTitle": "No characters loaded",
+    "emptyDescription": "The portal returned an empty character list.",
+    "paginationLabel": "Character pages",
+    "previousPage": "Previous",
+    "nextPage": "Next",
+    "pageSummary": "Page {currentPage} of {totalPages}"
+  },
+  "CharacterCard": {
+    "cardAriaLabel": "{characterName} character dossier",
+    "speciesLabel": "Species",
+    "genderLabel": "Gender",
+    "locationLabel": "Location",
+    "openDetailsText": "Open dossier",
+    "openDetailsLabel": "Open dossier for {characterName}"
   }
 }
