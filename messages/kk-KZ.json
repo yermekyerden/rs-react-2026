@@ -1,0 +1,29 @@
+{
+  "Layout": {
+    "brand": "Portal Lab",
+    "navigationLabel": "Negızgı navigation",
+    "explorer": "Explorer",
+    "about": "Joba turaly"
+  },
+  "ExplorerPage": {
+    "kicker": "Rick and Morty API Explorer",
+    "title": "Keiıpkerler Explorer",
+    "description": "Keiıpker atyn engızıñız, Portal Lab jaña ölşemge jol aşsyn. API qauıpsız keıipker qaıtarsa, jaqsy bolady.",
+    "status": "Next.js migration scaffold jumys istep tür."
+  },
+  "AboutPage": {
+    "kicker": "Portal Lab archive",
+    "title": "Character Explorer turaly",
+    "description": "Character Explorer Rick and Morty API arqyly ärtürlı ölşemdegı keiıpkerlerdı izdeuge, nätijelerdı qarauga jäne soñğy izdeu koordinattaryn browser işınde saqtauga kömektesedı.",
+    "authorKicker": "Author dossier",
+    "authorName": "Yermek Yerdenov",
+    "authorDescription": "Qazaqstannan şyqqan software engineer. Code jazudy, puzzle şeşudı, chess oinaudy jäne qyzyqty önımder jasaudy ūnatady."
+  },
+  "NotFoundPage": {
+    "kicker": "Portal route failure",
+    "code": "404",
+    "title": "Ölşem tabylmady",
+    "description": "Portal qate timeline işıne aşyldy. Explorer betıne oralyp, tūraqty ölşemdı qaıta scan jasañyz.",
+    "backLink": "Explorer betıne oralu"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "Layout": {
+    "brand": "Portal Lab",
+    "navigationLabel": "Main navigation",
+    "explorer": "Explorer",
+    "about": "About"
+  },
+  "ExplorerPage": {
+    "kicker": "Rick and Morty API Explorer",
+    "title": "Character Explorer",
+    "description": "Type a name, open a tiny portal, and hope the API sends back someone less dangerous than Rick.",
+    "status": "Next.js migration scaffold is online."
+  },
+  "AboutPage": {
+    "kicker": "Portal Lab Archive",
+    "title": "About Character Explorer",
+    "description": "Character Explorer opens a small portal into the Rick and Morty API. It helps you search characters, inspect results, and keep your last search coordinates in this browser.",
+    "authorKicker": "Author dossier",
+    "authorName": "Yermek Yerdenov",
+    "authorDescription": "A software engineer from Kazakhstan who likes to code, solve puzzles, play chess, and build things for fun."
+  },
+  "NotFoundPage": {
+    "kicker": "Portal route failure",
+    "code": "404",
+    "title": "Dimension not found",
+    "description": "The portal opened in the wrong timeline. Return to the explorer and scan a stable dimension.",
+    "backLink": "Back to Explorer"
+  }
+}
