@@ -7,7 +7,7 @@ export const CHARACTER_RESULTS_CLASS_NAMES = {
   headerActions: 'flex flex-col gap-3 sm:flex-row sm:items-center',
   status: 'text-sm font-extrabold uppercase tracking-[0.16em] text-emerald-300',
   title:
-    'mt-2 text-3xl font-black leading-none tracking-[-0.05em] text-slate-50 sm:text-5xl',
+    'mt-2 font-[family-name:var(--font-app-display)] text-3xl font-black leading-none tracking-[-0.05em] text-slate-50 sm:text-5xl',
   summary: 'text-sm font-bold leading-6 text-slate-400',
   grid: 'grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5',
   gridItem: 'h-full',
@@ -15,7 +15,8 @@ export const CHARACTER_RESULTS_CLASS_NAMES = {
     'grid min-h-80 place-items-center rounded-[1.75rem] border border-slate-300/10 bg-slate-900/60 p-8 text-center',
   errorState:
     'grid min-h-80 place-items-center rounded-[1.75rem] border border-red-300/20 bg-red-300/10 p-8 text-center',
-  stateTitle: 'text-2xl font-black leading-tight tracking-tight text-slate-50',
+  stateTitle:
+    'font-[family-name:var(--font-app-display)] text-2xl font-black leading-tight tracking-tight text-slate-50',
   stateText: 'mt-3 max-w-2xl text-base font-semibold leading-7 text-slate-300',
 
   footer:
@@ -33,7 +34,7 @@ export const CHARACTER_RESULTS_CLASS_NAMES = {
   selectedKicker:
     'text-[0.68rem] font-black uppercase tracking-[0.16em] text-emerald-300',
   selectedSummary:
-    'mt-1 text-base font-black leading-tight tracking-tight text-slate-50',
+    'mt-1 font-[family-name:var(--font-app-display)] text-base font-black leading-tight tracking-tight text-slate-50',
   selectedDescription:
     'mt-1 max-w-xl text-xs font-semibold leading-5 text-slate-400 max-sm:hidden',
   selectedActions: 'flex flex-col gap-2 sm:flex-row sm:items-center',

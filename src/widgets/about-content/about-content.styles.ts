@@ -6,11 +6,12 @@ export const ABOUT_CONTENT_CLASS_NAMES = {
   kicker:
     'mb-3 text-sm font-extrabold uppercase tracking-[0.2em] text-emerald-300',
   title:
-    'text-4xl font-black leading-none tracking-[-0.06em] text-slate-50 sm:text-6xl',
+    'font-[family-name:var(--font-app-display)] text-4xl font-black leading-none tracking-[-0.06em] text-slate-50 sm:text-6xl',
   lead: 'mt-5 max-w-3xl text-base font-semibold leading-7 text-slate-300 sm:text-lg',
   cardGrid: 'grid gap-4 md:grid-cols-2',
   card: 'rounded-3xl border border-slate-300/10 bg-slate-900/60 p-6',
-  cardTitle: 'mt-2 text-2xl font-black tracking-tight text-slate-50',
+  cardTitle:
+    'mt-2 font-[family-name:var(--font-app-display)] text-2xl font-black tracking-tight text-slate-50',
   cardText: 'mt-3 text-sm font-semibold leading-7 text-slate-300',
   portalCard:
     'grid min-h-64 place-items-center rounded-3xl border border-cyan-300/20 bg-cyan-300/10 p-8',

@@ -4,7 +4,7 @@ export const EXPLORER_INTRO_CLASS_NAMES = {
   kicker:
     'mb-3 text-sm font-extrabold uppercase tracking-[0.2em] text-emerald-300',
   title:
-    'text-5xl font-black leading-none tracking-[-0.06em] text-slate-50 sm:text-7xl lg:text-8xl',
+    'font-[family-name:var(--font-app-display)] text-5xl font-black leading-none tracking-[-0.06em] text-slate-50 sm:text-7xl lg:text-8xl',
   description:
     'mx-auto mt-6 max-w-3xl text-base font-semibold leading-7 text-slate-300 sm:text-lg',
   status:

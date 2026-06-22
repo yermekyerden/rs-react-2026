@@ -11,7 +11,7 @@ export const CHARACTER_CARD_CLASS_NAMES = {
     'absolute left-3 top-3 z-10 rounded-full border px-3 py-1 text-xs font-black uppercase tracking-[0.14em] backdrop-blur-xl',
   selectionSlot: 'absolute right-3 top-3 z-10',
   content: 'grid flex-1 grid-rows-[auto_minmax(0,1fr)_auto] gap-4 p-5 pt-2',
-  name: 'line-clamp-2 text-xl font-black leading-tight tracking-tight text-slate-50',
+  name: 'line-clamp-2 font-[family-name:var(--font-app-display)] text-xl font-black leading-tight tracking-tight text-slate-50',
   metaList: 'grid content-start gap-3',
   metaRow: 'grid gap-1',
   metaLabel: 'text-xs font-black uppercase tracking-[0.14em] text-slate-500',

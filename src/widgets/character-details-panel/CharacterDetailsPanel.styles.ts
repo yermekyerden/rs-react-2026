@@ -20,7 +20,7 @@ export const CHARACTER_DETAILS_PANEL_CLASS_NAMES = {
   titleBlock: 'min-w-0',
   subjectLabel: 'text-xs font-black uppercase tracking-[0.16em] text-slate-400',
   title:
-    'mt-2 text-4xl font-black leading-none tracking-[-0.06em] text-slate-50 sm:text-6xl lg:text-7xl',
+    'font-[family-name:var(--font-app-display)] text-4xl font-black leading-none tracking-[-0.06em] text-slate-50 sm:text-6xl',
   subtitle: 'mt-4 max-w-3xl text-base font-semibold leading-7 text-slate-300',
   chips: 'flex flex-wrap gap-2',
   chip: 'rounded-full border border-slate-200/10 bg-slate-950/55 px-3 py-1.5 text-xs font-black uppercase tracking-[0.1em] text-slate-100',
@@ -30,7 +30,7 @@ export const CHARACTER_DETAILS_PANEL_CLASS_NAMES = {
   metaLabel: 'text-xs font-black uppercase tracking-[0.14em] text-slate-500',
   metaValue: 'mt-2 text-sm font-bold leading-5 text-slate-100',
   failedTitle:
-    'text-3xl font-black leading-tight tracking-[-0.05em] text-slate-50',
+    'font-[family-name:var(--font-app-display)] text-3xl font-black leading-tight tracking-[-0.05em] text-slate-50',
   failedText: 'max-w-3xl text-base font-semibold leading-7 text-slate-300',
 } as const;
 

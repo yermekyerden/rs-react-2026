@@ -1,5 +1,7 @@
 import { APP_METADATA } from '@/shared/config/app-metadata';
 import { APP_ROUTES } from '@/shared/config/app-routes';
+import { APP_DISPLAY_FONT, APP_TEXT_FONT } from '@/shared/config/app-fonts';
+import { cn } from '@/shared/lib/cn';
 import LanguageSwitcher from '@/features/language-switcher/ui/LanguageSwitcher/LanguageSwitcher';
 import { APP_SHELL_CLASS_NAMES } from '@/widgets/app-shell/app-shell.styles';
 import { Link } from '@/i18n/navigation';
@@ -47,7 +49,13 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className={APP_SHELL_CLASS_NAMES.body}>
+      <body
+        className={cn(
+          APP_SHELL_CLASS_NAMES.body,
+          APP_TEXT_FONT.variable,
+          APP_DISPLAY_FONT.variable
+        )}
+      >
         <NextIntlClientProvider messages={messages}>
           <div className={APP_SHELL_CLASS_NAMES.shell}>
             <header className={APP_SHELL_CLASS_NAMES.header}>
