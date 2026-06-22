@@ -1,4 +1,5 @@
-import { fetchCharacterDetails } from '@/entities/character';
+import { fetchCharacterDetails } from '@/entities/character/api/characterApi';
+import { CHARACTER_DEFAULTS } from '@/entities/character/model/character.constants';
 import {
   CHARACTER_SELECTION,
   CHARACTER_SELECTION_PARAM,
@@ -24,7 +25,9 @@ export async function GET(request: Request): Promise<Response> {
   }
 
   const characters = await Promise.all(
-    selectedCharacterIds.map(fetchCharacterDetails)
+    selectedCharacterIds.map((characterId) =>
+      fetchCharacterDetails(characterId)
+    )
   );
   const csv = createCharactersCsv(characters);
 
@@ -49,5 +52,9 @@ function parseSelectedCharacterIdsFromUrl(url: URL): number[] {
   return rawSelectedCharacterIds
     .split(CHARACTER_SELECTION.separator)
     .map(Number)
-    .filter(Number.isInteger);
+    .filter(isPositiveInteger);
+}
+
+function isPositiveInteger(value: number): boolean {
+  return Number.isInteger(value) && value >= CHARACTER_DEFAULTS.firstPage;
 }
