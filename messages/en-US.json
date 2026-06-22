@@ -1,0 +1,84 @@
+{
+  "Layout": {
+    "brand": "Portal Lab",
+    "navigationLabel": "Main navigation",
+    "explorer": "Explorer",
+    "about": "About",
+    "languageLabel": "Language switcher",
+    "themeLabel": "Toggle color theme",
+    "themeDarkText": "Dark",
+    "themeLightText": "Light"
+  },
+  "ExplorerPage": {
+    "kicker": "Rick and Morty API Explorer",
+    "title": "Character Explorer",
+    "description": "Type a name, open a tiny portal, and hope the API sends back someone less dangerous than Rick.",
+    "status": "Next.js migration scaffold is online."
+  },
+  "AboutPage": {
+    "kicker": "Portal Lab Archive",
+    "title": "About Character Explorer",
+    "description": "Character Explorer opens a small portal into the Rick and Morty API. It helps you search characters, inspect results, and keep your last search coordinates in this browser.",
+    "authorKicker": "Author dossier",
+    "authorName": "Yermek Yerdenov",
+    "authorDescription": "A software engineer from Kazakhstan who likes to code, solve puzzles, play chess, and build things for fun."
+  },
+  "NotFoundPage": {
+    "kicker": "Portal route failure",
+    "code": "404",
+    "title": "Dimension not found",
+    "description": "The portal opened in the wrong timeline. Return to the explorer and scan a stable dimension.",
+    "backLink": "Back to Explorer"
+  },
+  "SearchForm": {
+    "label": "Character name",
+    "placeholder": "Try Rick, Morty, Summer...",
+    "hint": "Submit the form to open server-rendered portal coordinates.",
+    "submitButton": "Search"
+  },
+  "CharacterResults": {
+    "title": "Character results",
+    "summary": "{totalCount} characters detected by the API",
+    "browsingStatus": "Browsing dimensions • Page {currentPage} of {totalPages}",
+    "searchStatus": "Coordinates locked: \"{searchTerm}\" • Page {currentPage} of {totalPages}",
+    "unstableStatus": "Portal unstable",
+    "errorTitle": "No signal",
+    "emptyTitle": "No characters loaded",
+    "emptyDescription": "The portal returned an empty character list.",
+    "paginationLabel": "Character pages",
+    "previousPage": "Previous",
+    "nextPage": "Next",
+    "pageSummary": "Page {currentPage} of {totalPages}",
+    "exportSelected": "Download CSV",
+    "clearSelection": "Clear selection",
+    "selectedKicker": "Selected dossiers",
+    "selectedSummary": "{selectedCount} characters selected",
+    "selectedDescription": "Selected characters stay in the URL while you navigate between pages."
+  },
+  "CharacterCard": {
+    "cardAriaLabel": "{characterName} character dossier",
+    "speciesLabel": "Species",
+    "genderLabel": "Gender",
+    "locationLabel": "Location",
+    "openDetailsText": "Open dossier",
+    "openDetailsLabel": "Open dossier for {characterName}",
+    "selectText": "Select",
+    "selectedText": "Selected"
+  },
+  "CharacterDetailsPanel": {
+    "eyebrow": "Character dossier",
+    "failedEyebrow": "Dossier signal lost",
+    "failedTitle": "Could not open dossier",
+    "subjectLabel": "Dossier subject",
+    "subtitle": "{characterName} is currently tracked near {locationName}.",
+    "createdLabel": "Created",
+    "speciesLabel": "Species",
+    "typeLabel": "Type",
+    "genderLabel": "Gender",
+    "originLabel": "Origin",
+    "locationLabel": "Location",
+    "episodesLabel": "Episodes",
+    "episodesValue": "{episodeCount} episodes",
+    "closeLink": "Close dossier"
+  }
+}

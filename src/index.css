@@ -1,148 +1,136 @@
+@import 'tailwindcss';
+
 :root {
-  --font-family-base:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', sans-serif;
+  color-scheme: dark;
 
-  --color-background: #06111f;
-  --color-background-mid: #0f172a;
-  --color-background-end: #111827;
+  --app-body-bg: #020617;
+  --app-text-primary: #f8fafc;
+  --app-text-secondary: #cbd5e1;
+  --app-text-muted: #94a3b8;
+  --app-text-soft: #e2e8f0;
+  --app-text-inverse: #022c22;
 
-  --color-surface: rgba(15, 23, 42, 0.84);
-  --color-surface-strong: rgba(2, 6, 23, 0.86);
-  --color-surface-card: rgba(2, 6, 23, 0.5);
+  --app-accent: #86efac;
+  --app-accent-strong: #22c55e;
+  --app-accent-soft: rgba(34, 197, 94, 0.1);
 
-  --color-text-primary: #f8fafc;
-  --color-text-secondary: #cbd5e1;
-  --color-text-muted: #94a3b8;
-  --color-text-soft: #e2e8f0;
-  --color-text-placeholder: #64748b;
-  --color-text-inverse: #022c22;
+  --app-danger: #fca5a5;
+  --app-danger-soft: rgba(127, 29, 29, 0.18);
 
-  --color-accent: #86efac;
-  --color-accent-strong: #22c55e;
-  --color-accent-dark: #065f46;
+  --app-status-alive-rgb: 134 239 172;
+  --app-status-dead-rgb: 248 113 113;
+  --app-status-unknown-rgb: 148 163 184;
 
-  --color-portal-cyan: #67e8f9;
-  --color-portal-cyan-strong: #22d3ee;
-  --color-portal-cyan-soft: rgba(103, 232, 249, 0.14);
+  --app-border-subtle: rgba(148, 163, 184, 0.24);
+  --app-border-control: rgba(148, 163, 184, 0.32);
+  --app-border-accent: rgba(34, 197, 94, 0.26);
 
-  --color-danger: #fca5a5;
-  --color-danger-text: #fecaca;
-  --color-danger-soft: #ffe4e6;
-  --color-danger-strong: #ef4444;
-  --color-danger-dark: #7f1d1d;
-  --color-danger-surface: rgba(127, 29, 29, 0.22);
+  --app-shell-bg:
+    radial-gradient(
+      circle at 12% 8%,
+      rgba(110, 231, 183, 0.09),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 88% 4%,
+      rgba(56, 189, 248, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(135deg, #06111f 0%, #0f172a 52%, #111827 100%);
 
-  --color-neutral: #d1d5db;
-
-  --status-alive-rgb: 134 239 172;
-  --status-dead-rgb: 248 113 113;
-  --status-unknown-rgb: 148 163 184;
-
-  --border-subtle: rgba(148, 163, 184, 0.24);
-  --border-control: rgba(148, 163, 184, 0.32);
-  --border-card: rgba(148, 163, 184, 0.18);
-  --border-accent: rgba(34, 197, 94, 0.28);
-  --border-danger: rgba(248, 113, 113, 0.28);
-  --border-portal: rgba(103, 232, 249, 0.26);
-
-  --glow-page-primary: rgba(110, 231, 183, 0.09);
-  --glow-page-secondary: rgba(56, 189, 248, 0.08);
-  --glow-accent-soft: rgba(34, 197, 94, 0.1);
-  --glow-danger-soft: rgba(244, 63, 94, 0.12);
-
-  --radius-panel: 24px;
-  --radius-card: 18px;
-  --radius-control: 14px;
-  --radius-image: 14px;
-  --radius-pill: 999px;
-
-  --shadow-panel: 0 20px 46px rgba(0, 0, 0, 0.24);
-  --shadow-card: 0 14px 30px rgba(0, 0, 0, 0.12);
-  --shadow-accent-button: 0 10px 22px rgba(34, 197, 94, 0.16);
-  --shadow-danger-button: 0 10px 22px rgba(127, 29, 29, 0.16);
-
-  --transition-fast: 160ms ease;
-
-  --page-max-width: 1120px;
-
-  font-family: var(--font-family-base);
-  color: var(--color-text-soft);
-  background-color: var(--color-background);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --app-header-bg: rgba(15, 23, 42, 0.84);
+  --app-panel-bg: rgba(15, 23, 42, 0.84);
+  --app-panel-glow-bg:
+    radial-gradient(circle at 12% 20%, rgba(34, 197, 94, 0.1), transparent 28%),
+    radial-gradient(
+      circle at 90% 8%,
+      rgba(56, 189, 248, 0.08),
+      transparent 30%
+    ),
+    rgba(15, 23, 42, 0.84);
+  --app-footer-bg: rgba(2, 6, 23, 0.88);
+  --app-card-bg: rgba(15, 23, 42, 0.84);
+  --app-card-inner-bg: rgba(2, 6, 23, 0.5);
+  --app-control-bg: rgba(2, 6, 23, 0.68);
+  --app-input-bg: rgba(2, 6, 23, 0.78);
+  --app-badge-bg: rgba(2, 6, 23, 0.86);
+  --app-status-control-bg: rgba(2, 6, 23, 0.9);
+  --app-selected-bg:
+    radial-gradient(
+      circle at top left,
+      rgba(34, 197, 94, 0.08),
+      transparent 14rem
+    ),
+    rgba(2, 6, 23, 0.74);
 }
 
-:root[data-theme='light'] {
-  --color-background: #f6f8fb;
-  --color-background-mid: #eef2f7;
-  --color-background-end: #edf7f3;
+html[data-theme='light'] {
+  color-scheme: light;
 
-  --color-surface: rgb(255 255 255 / 0.92);
-  --color-surface-strong: rgb(255 255 255 / 0.98);
-  --color-surface-card: rgb(248 250 252 / 0.9);
+  --app-body-bg: #f6f8fb;
+  --app-text-primary: #0f172a;
+  --app-text-secondary: #334155;
+  --app-text-muted: #64748b;
+  --app-text-soft: #1e293b;
+  --app-text-inverse: #f8fafc;
 
-  --color-text-primary: #0f172a;
-  --color-text-secondary: #334155;
-  --color-text-muted: #64748b;
-  --color-text-soft: #1e293b;
-  --color-text-placeholder: #64748b;
-  --color-text-inverse: #f8fafc;
+  --app-accent: #15803d;
+  --app-accent-strong: #16a34a;
+  --app-accent-soft: rgba(22, 163, 74, 0.075);
 
-  --color-accent: #16a34a;
-  --color-accent-strong: #15803d;
-  --color-accent-dark: #14532d;
+  --app-danger: #991b1b;
+  --app-danger-soft: rgba(220, 38, 38, 0.08);
 
-  --color-portal-cyan: #0891b2;
-  --color-portal-cyan-strong: #0e7490;
-  --color-portal-cyan-soft: rgb(8 145 178 / 0.08);
+  --app-status-alive-rgb: 22 163 74;
+  --app-status-dead-rgb: 220 38 38;
+  --app-status-unknown-rgb: 71 85 105;
 
-  --color-danger: #dc2626;
-  --color-danger-text: #991b1b;
-  --color-danger-soft: #fee2e2;
-  --color-danger-strong: #dc2626;
-  --color-danger-dark: #7f1d1d;
-  --color-danger-surface: rgb(254 226 226 / 0.7);
+  --app-border-subtle: rgba(15, 23, 42, 0.12);
+  --app-border-control: rgba(15, 23, 42, 0.18);
+  --app-border-accent: rgba(22, 163, 74, 0.26);
 
-  --color-neutral: #475569;
+  --app-shell-bg:
+    radial-gradient(
+      circle at 12% 8%,
+      rgba(34, 197, 94, 0.055),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 88% 4%,
+      rgba(8, 145, 178, 0.045),
+      transparent 28%
+    ),
+    linear-gradient(135deg, #f6f8fb 0%, #eef2f7 52%, #edf7f3 100%);
 
-  --status-alive-rgb: 22 163 74;
-  --status-dead-rgb: 220 38 38;
-  --status-unknown-rgb: 71 85 105;
-
-  --border-subtle: rgb(15 23 42 / 0.13);
-  --border-control: rgb(15 23 42 / 0.18);
-  --border-card: rgb(15 23 42 / 0.12);
-  --border-accent: rgb(22 163 74 / 0.28);
-  --border-danger: rgb(220 38 38 / 0.26);
-  --border-portal: rgb(8 145 178 / 0.2);
-
-  --glow-page-primary: rgb(34 197 94 / 0.055);
-  --glow-page-secondary: rgb(8 145 178 / 0.045);
-  --glow-accent-soft: rgb(22 163 74 / 0.085);
-  --glow-danger-soft: rgb(220 38 38 / 0.1);
-
-  --shadow-panel: 0 18px 42px rgb(15 23 42 / 0.11);
-  --shadow-card: 0 12px 28px rgb(15 23 42 / 0.08);
-  --shadow-accent-button: 0 10px 22px rgb(22 163 74 / 0.14);
-  --shadow-danger-button: 0 10px 22px rgb(127 29 29 / 0.1);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-:root.theme-transition-lock *,
-:root.theme-transition-lock *::before,
-:root.theme-transition-lock *::after {
-  transition: none !important;
+  --app-header-bg: rgba(255, 255, 255, 0.92);
+  --app-panel-bg: rgba(255, 255, 255, 0.92);
+  --app-panel-glow-bg:
+    radial-gradient(
+      circle at 12% 20%,
+      rgba(22, 163, 74, 0.075),
+      transparent 28%
+    ),
+    radial-gradient(circle at 90% 8%, rgba(8, 145, 178, 0.06), transparent 30%),
+    rgba(255, 255, 255, 0.92);
+  --app-footer-bg: rgba(255, 255, 255, 0.92);
+  --app-card-bg: rgba(255, 255, 255, 0.94);
+  --app-card-inner-bg: rgba(248, 250, 252, 0.92);
+  --app-control-bg: rgba(255, 255, 255, 0.86);
+  --app-input-bg: rgba(255, 255, 255, 0.92);
+  --app-badge-bg: rgba(255, 255, 255, 0.96);
+  --app-status-control-bg: rgba(255, 255, 255, 0.96);
+  --app-selected-bg:
+    radial-gradient(
+      circle at top left,
+      rgba(22, 163, 74, 0.075),
+      transparent 14rem
+    ),
+    rgba(255, 255, 255, 0.9);
 }
 
 html {
   min-width: 320px;
-  background-color: var(--color-background);
+  background-color: var(--app-body-bg);
 }
 
 body {

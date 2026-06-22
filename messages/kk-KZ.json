@@ -1,0 +1,84 @@
+{
+  "Layout": {
+    "brand": "Portal Lab",
+    "navigationLabel": "Negızgı navigation",
+    "explorer": "Explorer",
+    "about": "Joba turaly",
+    "languageLabel": "Tıl auystyru",
+    "themeLabel": "Tüs taqyrybyn auystyru",
+    "themeDarkText": "Dark",
+    "themeLightText": "Light"
+  },
+  "ExplorerPage": {
+    "kicker": "Rick and Morty API Explorer",
+    "title": "Keiıpkerler Explorer",
+    "description": "Keiıpker atyn engızıñız, Portal Lab jaña ölşemge jol aşsyn. API qauıpsız keıipker qaıtarsa, jaqsy bolady.",
+    "status": "Next.js migration scaffold jumys istep tür."
+  },
+  "AboutPage": {
+    "kicker": "Portal Lab archive",
+    "title": "Character Explorer turaly",
+    "description": "Character Explorer Rick and Morty API arqyly ärtürlı ölşemdegı keiıpkerlerdı izdeuge, nätijelerdı qarauga jäne soñğy izdeu koordinattaryn browser işınde saqtauga kömektesedı.",
+    "authorKicker": "Author dossier",
+    "authorName": "Yermek Yerdenov",
+    "authorDescription": "Qazaqstannan şyqqan software engineer. Code jazudy, puzzle şeşudı, chess oinaudy jäne qyzyqty önımder jasaudy ūnatady."
+  },
+  "NotFoundPage": {
+    "kicker": "Portal route failure",
+    "code": "404",
+    "title": "Ölşem tabylmady",
+    "description": "Portal qate timeline işıne aşyldy. Explorer betıne oralyp, tūraqty ölşemdı qaıta scan jasañyz.",
+    "backLink": "Explorer betıne oralu"
+  },
+  "SearchForm": {
+    "label": "Keiıpker aty",
+    "placeholder": "Rick, Morty, Summer dep körıñız...",
+    "hint": "Formany jıberıñız, Portal Lab server-rendered koordinattardy aşady.",
+    "submitButton": "Izdeu"
+  },
+  "CharacterResults": {
+    "title": "Keiıpkerler nätijesı",
+    "summary": "API {totalCount} keiıpker tapty",
+    "browsingStatus": "Ölşemder qaralyp jatyr • {currentPage}/{totalPages} bet",
+    "searchStatus": "Koordinattar bekıtıldı: \"{searchTerm}\" • {currentPage}/{totalPages} bet",
+    "unstableStatus": "Portal tūraqsyz",
+    "errorTitle": "Signal joq",
+    "emptyTitle": "Keiıpkerler jüktelmedı",
+    "emptyDescription": "Portal bos keiıpkerler tızımın qaıtardy.",
+    "paginationLabel": "Keiıpker betterı",
+    "previousPage": "Aldyñğy",
+    "nextPage": "Kelesı",
+    "pageSummary": "{currentPage}/{totalPages} bet",
+    "exportSelected": "CSV jükteu",
+    "clearSelection": "Tañdaudy tazalau",
+    "selectedKicker": "Tañdalğan dossier",
+    "selectedSummary": "{selectedCount} keiıpker tañdaldy",
+    "selectedDescription": "Tañdalğan keiıpkerler better arasında auysqanda URL işınde saqtalady."
+  },
+  "CharacterCard": {
+    "cardAriaLabel": "{characterName} keiıpker dossier",
+    "speciesLabel": "Türı",
+    "genderLabel": "Gender",
+    "locationLabel": "Location",
+    "openDetailsText": "Dossier aşu",
+    "openDetailsLabel": "{characterName} dossier aşu",
+    "selectText": "Tañdau",
+    "selectedText": "Tañdaldy"
+  },
+  "CharacterDetailsPanel": {
+    "eyebrow": "Keiıpker dossier",
+    "failedEyebrow": "Dossier signaly joğaldy",
+    "failedTitle": "Dossier ashylmady",
+    "subjectLabel": "Dossier subject",
+    "subtitle": "{characterName} qazır {locationName} mañynda baqylanady.",
+    "createdLabel": "Jasalğan",
+    "speciesLabel": "Türı",
+    "typeLabel": "Type",
+    "genderLabel": "Gender",
+    "originLabel": "Origin",
+    "locationLabel": "Location",
+    "episodesLabel": "Episodes",
+    "episodesValue": "{episodeCount} episode",
+    "closeLink": "Dossier jabu"
+  }
+}
