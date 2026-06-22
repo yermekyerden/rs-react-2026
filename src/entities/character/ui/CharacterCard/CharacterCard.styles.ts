@@ -5,9 +5,11 @@ export const CHARACTER_CARD_CLASS_NAMES = {
   card: 'group relative flex h-full min-h-[26rem] flex-col overflow-hidden rounded-[1.75rem] border bg-slate-950/75 shadow-2xl shadow-black/20 transition hover:-translate-y-1',
   imageFrame:
     'relative m-3 aspect-square overflow-hidden rounded-[1.35rem] border border-slate-300/10 bg-slate-900',
-  image: 'object-cover transition duration-300 group-hover:scale-105',
+  image:
+    'object-cover object-center transition duration-300 group-hover:scale-105',
   statusBadge:
-    'absolute left-3 top-3 rounded-full border px-3 py-1 text-xs font-black uppercase tracking-[0.14em] backdrop-blur-xl',
+    'absolute left-3 top-3 z-10 rounded-full border px-3 py-1 text-xs font-black uppercase tracking-[0.14em] backdrop-blur-xl',
+  selectionSlot: 'absolute right-3 top-3 z-10',
   content: 'grid flex-1 grid-rows-[auto_minmax(0,1fr)_auto] gap-4 p-5 pt-2',
   name: 'line-clamp-2 text-xl font-black leading-tight tracking-tight text-slate-50',
   metaList: 'grid content-start gap-3',

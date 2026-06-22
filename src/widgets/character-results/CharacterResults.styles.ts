@@ -11,8 +11,8 @@ export const CHARACTER_RESULTS_CLASS_NAMES = {
   summary: 'text-sm font-bold leading-6 text-slate-400',
   exportLink:
     'inline-flex min-h-11 items-center justify-center rounded-2xl border border-cyan-300/30 bg-cyan-300/10 px-5 text-sm font-black uppercase tracking-[0.12em] text-cyan-100 transition hover:bg-cyan-300/20 focus:outline-none focus:ring-2 focus:ring-cyan-300',
-  grid: 'grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5',
-  cardActions: 'mt-3',
+  grid: 'grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5',
+  gridItem: 'h-full',
   state:
     'grid min-h-80 place-items-center rounded-[1.75rem] border border-slate-300/10 bg-slate-900/60 p-8 text-center',
   errorState:

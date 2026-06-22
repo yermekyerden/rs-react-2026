@@ -7,11 +7,11 @@ import {
 import { createCharacterSearchHref } from '@/features/character-search/model/character-search-params.builders';
 import type { CharacterSearchParams } from '@/features/character-search/model/character-search-params.types';
 import type { CharacterResultsState } from '@/features/character-search/model/character-search-results.types';
+import { createCharacterSelectionHref } from '@/features/character-selection/model/character-selection.builders';
 import {
   CHARACTER_SELECTION,
   CHARACTER_SELECTION_PARAM,
 } from '@/features/character-selection/model/character-selection.constants';
-import { createCharacterSelectionHref } from '@/features/character-selection/model/character-selection.builders';
 import CharacterSelectionToggle from '@/features/character-selection/ui/CharacterSelectionToggle/CharacterSelectionToggle';
 import { CHARACTER_CSV_EXPORT } from '@/features/csv-export/model/character-csv.constants';
 import { Link } from '@/i18n/navigation';
@@ -138,7 +138,10 @@ export default async function CharacterResults({
             });
 
             return (
-              <li key={character.id}>
+              <li
+                className={CHARACTER_RESULTS_CLASS_NAMES.gridItem}
+                key={character.id}
+              >
                 <CharacterCard
                   character={character}
                   detailsHref={detailsHref}
@@ -149,16 +152,15 @@ export default async function CharacterResults({
                     character,
                     translations: characterCardTranslations,
                   })}
+                  selectionSlot={
+                    <CharacterSelectionToggle
+                      href={selectionHref}
+                      isSelected={isSelected}
+                      selectedLabel={characterCardTranslations('selectedText')}
+                      unselectedLabel={characterCardTranslations('selectText')}
+                    />
+                  }
                 />
-
-                <div className={CHARACTER_RESULTS_CLASS_NAMES.cardActions}>
-                  <CharacterSelectionToggle
-                    href={selectionHref}
-                    isSelected={isSelected}
-                    selectedLabel={characterCardTranslations('selectedText')}
-                    unselectedLabel={characterCardTranslations('selectText')}
-                  />
-                </div>
               </li>
             );
           })}

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import type { ReactNode } from 'react';
 import { Link } from '@/i18n/navigation';
 import { cn } from '@/shared/lib/cn';
 import type { CharacterCardModel } from '../../model/character.types';
@@ -23,6 +24,7 @@ export interface CharacterCardProps {
   copy: CharacterCardCopy;
   detailsHref: string;
   isPriorityImage?: boolean;
+  selectionSlot?: ReactNode;
 }
 
 export default function CharacterCard({
@@ -30,6 +32,7 @@ export default function CharacterCard({
   copy,
   detailsHref,
   isPriorityImage = false,
+  selectionSlot,
 }: CharacterCardProps) {
   const cardClassName = cn(
     CHARACTER_CARD_CLASS_NAMES.card,
@@ -47,8 +50,7 @@ export default function CharacterCard({
           className={CHARACTER_CARD_CLASS_NAMES.image}
           src={character.imageUrl}
           alt={character.name}
-          width={CHARACTER_CARD_IMAGE.width}
-          height={CHARACTER_CARD_IMAGE.height}
+          fill={CHARACTER_CARD_IMAGE.fill}
           sizes={CHARACTER_CARD_IMAGE.sizes}
           loading={
             isPriorityImage
@@ -58,6 +60,12 @@ export default function CharacterCard({
         />
 
         <span className={badgeClassName}>{character.status}</span>
+
+        {selectionSlot ? (
+          <div className={CHARACTER_CARD_CLASS_NAMES.selectionSlot}>
+            {selectionSlot}
+          </div>
+        ) : null}
       </div>
 
       <div className={CHARACTER_CARD_CLASS_NAMES.content}>

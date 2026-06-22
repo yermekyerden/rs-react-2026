@@ -1,5 +1,6 @@
 import { Link } from '@/i18n/navigation';
 import { cn } from '@/shared/lib/cn';
+import { CHARACTER_SELECTION_TOGGLE_SYMBOL } from './CharacterSelectionToggle.constants';
 import { CHARACTER_SELECTION_TOGGLE_CLASS_NAMES } from './CharacterSelectionToggle.styles';
 
 export interface CharacterSelectionToggleProps {
@@ -23,8 +24,16 @@ export default function CharacterSelectionToggle({
   );
 
   return (
-    <Link className={className} href={href}>
-      {isSelected ? selectedLabel : unselectedLabel}
+    <Link
+      className={className}
+      href={href}
+      aria-label={isSelected ? selectedLabel : unselectedLabel}
+    >
+      <span aria-hidden="true">
+        {isSelected
+          ? CHARACTER_SELECTION_TOGGLE_SYMBOL.selected
+          : CHARACTER_SELECTION_TOGGLE_SYMBOL.idle}
+      </span>
     </Link>
   );
 }
