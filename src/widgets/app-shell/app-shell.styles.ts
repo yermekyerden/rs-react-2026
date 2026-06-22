@@ -12,5 +12,5 @@ export const APP_SHELL_CLASS_NAMES = {
     'flex items-center gap-1 justify-self-center rounded-full border border-slate-300/10 bg-slate-950/70 p-1 max-md:col-span-2 max-md:w-full',
   navigationLink:
     'rounded-full px-4 py-2 text-sm font-extrabold text-slate-300 transition hover:bg-emerald-300/10 hover:text-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-300 max-md:flex-1 max-md:text-center',
-  actions: 'justify-self-end',
+  actions: 'flex items-center justify-self-end',
 } as const;

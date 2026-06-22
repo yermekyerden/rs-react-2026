@@ -1,7 +1,9 @@
 import { APP_METADATA } from '@/shared/config/app-metadata';
 import { APP_ROUTES } from '@/shared/config/app-routes';
+import LanguageSwitcher from '@/features/language-switcher/ui/LanguageSwitcher/LanguageSwitcher';
 import { APP_SHELL_CLASS_NAMES } from '@/widgets/app-shell/app-shell.styles';
 import { Link } from '@/i18n/navigation';
+import type { AppLocale } from '@/i18n/routing';
 import { routing } from '@/i18n/routing';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import {
@@ -32,6 +34,7 @@ export default async function LocaleLayout({
   params,
 }: LocaleLayoutProps) {
   const { locale } = await params;
+  const currentLocale = locale as AppLocale;
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -74,6 +77,13 @@ export default async function LocaleLayout({
                     {t('about')}
                   </Link>
                 </nav>
+
+                <div className={APP_SHELL_CLASS_NAMES.actions}>
+                  <LanguageSwitcher
+                    currentLocale={currentLocale}
+                    label={t('languageLabel')}
+                  />
+                </div>
 
                 <div className={APP_SHELL_CLASS_NAMES.actions} />
               </div>

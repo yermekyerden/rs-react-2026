@@ -3,7 +3,8 @@
     "brand": "Portal Lab",
     "navigationLabel": "Negızgı navigation",
     "explorer": "Explorer",
-    "about": "Joba turaly"
+    "about": "Joba turaly",
+    "languageLabel": "Tıl auystyru"
   },
   "ExplorerPage": {
     "kicker": "Rick and Morty API Explorer",

@@ -3,7 +3,8 @@
     "brand": "Portal Lab",
     "navigationLabel": "Main navigation",
     "explorer": "Explorer",
-    "about": "About"
+    "about": "About",
+    "languageLabel": "Language switcher"
   },
   "ExplorerPage": {
     "kicker": "Rick and Morty API Explorer",
