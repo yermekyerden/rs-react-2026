@@ -4,7 +4,7 @@ import type { AppTheme } from '../../model/theme.types';
 export const THEME_SWITCHER_CLASS_NAMES = {
   form: 'contents',
   button:
-    'group relative inline-grid min-h-10 grid-cols-[auto_auto] items-center gap-2 rounded-full border px-2 py-1 text-xs font-black uppercase tracking-[0.12em] transition focus:outline-none focus:ring-2',
+    'group relative inline-grid min-h-10 grid-cols-[auto_auto] items-center gap-2 rounded-full border px-2 py-1 text-sm font-black uppercase tracking-[0.12em] transition focus:outline-none focus:ring-2',
   label: 'sr-only',
   track: 'relative h-7 w-14 overflow-hidden rounded-full border transition',
   thumb:
@@ -16,7 +16,7 @@ export const THEME_SWITCHER_BUTTON_CLASS_NAMES: Record<AppTheme, string> = {
   [APP_THEME.dark]:
     'border-emerald-300/30 bg-slate-950/80 text-emerald-200 shadow-[0_0_24px_rgba(52,211,153,0.12)] hover:border-emerald-200/60 hover:bg-emerald-300/10 focus:ring-emerald-300',
   [APP_THEME.light]:
-    'border-cyan-300/40 bg-cyan-50/90 text-cyan-950 shadow-[0_0_24px_rgba(34,211,238,0.18)] hover:border-cyan-500/70 hover:bg-white focus:ring-cyan-400',
+    'border-cyan-500/30 bg-white/85 text-cyan-950 shadow-[0_0_24px_rgba(34,211,238,0.18)] hover:border-cyan-500/70 hover:bg-white focus:ring-cyan-400',
 };
 
 export const THEME_SWITCHER_TRACK_CLASS_NAMES: Record<AppTheme, string> = {

@@ -11,11 +11,11 @@ export const CHARACTER_SELECTION_TOGGLE_IDLE_CLASS_NAMES: Record<
   string
 > = {
   [CHARACTER_STATUS.alive]:
-    'border-emerald-300/55 bg-slate-950/90 text-emerald-300 shadow-[0_0_20px_rgba(52,211,153,0.18)] hover:border-emerald-200/85 hover:bg-emerald-950/90 focus:ring-emerald-300',
+    'border-emerald-300/55 bg-[var(--app-status-control-bg)] text-emerald-300 shadow-[0_0_20px_rgba(52,211,153,0.18)] hover:border-emerald-200/85 hover:bg-emerald-300/10 focus:ring-emerald-300',
   [CHARACTER_STATUS.dead]:
-    'border-red-300/55 bg-slate-950/90 text-red-300 shadow-[0_0_20px_rgba(248,113,113,0.18)] hover:border-red-200/85 hover:bg-red-950/80 focus:ring-red-300',
+    'border-red-300/55 bg-[var(--app-status-control-bg)] text-red-300 shadow-[0_0_20px_rgba(248,113,113,0.18)] hover:border-red-200/85 hover:bg-red-300/10 focus:ring-red-300',
   [CHARACTER_STATUS.unknown]:
-    'border-slate-300/55 bg-slate-950/90 text-slate-300 shadow-[0_0_20px_rgba(148,163,184,0.14)] hover:border-slate-100/75 hover:bg-slate-800/90 focus:ring-slate-300',
+    'border-slate-400/55 bg-[var(--app-status-control-bg)] text-slate-400 shadow-[0_0_20px_rgba(148,163,184,0.14)] hover:border-slate-500/75 hover:bg-slate-300/10 focus:ring-slate-300',
 };
 
 export const CHARACTER_SELECTION_TOGGLE_SELECTED_CLASS_NAMES: Record<
@@ -23,11 +23,11 @@ export const CHARACTER_SELECTION_TOGGLE_SELECTED_CLASS_NAMES: Record<
   string
 > = {
   [CHARACTER_STATUS.alive]:
-    'border-emerald-300/75 bg-emerald-950/90 text-emerald-200 shadow-[0_0_28px_rgba(52,211,153,0.32)] hover:border-emerald-100/90 hover:bg-emerald-900/90 focus:ring-emerald-300',
+    'border-emerald-300/75 bg-emerald-300/15 text-emerald-300 shadow-[0_0_28px_rgba(52,211,153,0.32)] hover:border-emerald-100/90 hover:bg-emerald-300/20 focus:ring-emerald-300',
   [CHARACTER_STATUS.dead]:
-    'border-red-300/75 bg-red-950/90 text-red-200 shadow-[0_0_28px_rgba(248,113,113,0.32)] hover:border-red-100/90 hover:bg-red-900/90 focus:ring-red-300',
+    'border-red-300/75 bg-red-300/15 text-red-300 shadow-[0_0_28px_rgba(248,113,113,0.32)] hover:border-red-100/90 hover:bg-red-300/20 focus:ring-red-300',
   [CHARACTER_STATUS.unknown]:
-    'border-slate-200/75 bg-slate-800/95 text-slate-100 shadow-[0_0_28px_rgba(148,163,184,0.22)] hover:border-slate-50/90 hover:bg-slate-700/95 focus:ring-slate-300',
+    'border-slate-400/75 bg-slate-300/15 text-slate-400 shadow-[0_0_28px_rgba(148,163,184,0.22)] hover:border-slate-500/90 hover:bg-slate-300/20 focus:ring-slate-300',
 };
 
 export const CHARACTER_SELECTION_TOGGLE_MARKER_IDLE_CLASS_NAMES: Record<
@@ -35,11 +35,11 @@ export const CHARACTER_SELECTION_TOGGLE_MARKER_IDLE_CLASS_NAMES: Record<
   string
 > = {
   [CHARACTER_STATUS.alive]:
-    'border-emerald-300/65 bg-slate-950/75 group-hover:bg-emerald-300/10',
+    'border-emerald-300/65 bg-[var(--app-badge-bg)] group-hover:bg-emerald-300/10',
   [CHARACTER_STATUS.dead]:
-    'border-red-300/65 bg-slate-950/75 group-hover:bg-red-300/10',
+    'border-red-300/65 bg-[var(--app-badge-bg)] group-hover:bg-red-300/10',
   [CHARACTER_STATUS.unknown]:
-    'border-slate-300/65 bg-slate-950/75 group-hover:bg-slate-300/10',
+    'border-slate-400/65 bg-[var(--app-badge-bg)] group-hover:bg-slate-300/10',
 };
 
 export const CHARACTER_SELECTION_TOGGLE_MARKER_SELECTED_CLASS_NAMES: Record<
@@ -47,8 +47,8 @@ export const CHARACTER_SELECTION_TOGGLE_MARKER_SELECTED_CLASS_NAMES: Record<
   string
 > = {
   [CHARACTER_STATUS.alive]:
-    'border-emerald-200/80 bg-emerald-300/20 text-emerald-200',
-  [CHARACTER_STATUS.dead]: 'border-red-200/80 bg-red-300/20 text-red-200',
+    'border-emerald-300/80 bg-emerald-300/20 text-emerald-300',
+  [CHARACTER_STATUS.dead]: 'border-red-300/80 bg-red-300/20 text-red-300',
   [CHARACTER_STATUS.unknown]:
-    'border-slate-100/80 bg-slate-300/20 text-slate-100',
+    'border-slate-400/80 bg-slate-300/20 text-slate-400',
 };
