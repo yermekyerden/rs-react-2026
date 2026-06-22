@@ -4,7 +4,10 @@
     "navigationLabel": "Main navigation",
     "explorer": "Explorer",
     "about": "About",
-    "languageLabel": "Language switcher"
+    "languageLabel": "Language switcher",
+    "themeLabel": "Toggle color theme",
+    "themeDarkText": "Dark",
+    "themeLightText": "Light"
   },
   "ExplorerPage": {
     "kicker": "Rick and Morty API Explorer",

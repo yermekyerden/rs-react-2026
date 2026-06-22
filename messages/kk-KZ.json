@@ -4,7 +4,10 @@
     "navigationLabel": "Negızgı navigation",
     "explorer": "Explorer",
     "about": "Joba turaly",
-    "languageLabel": "Tıl auystyru"
+    "languageLabel": "Tıl auystyru",
+    "themeLabel": "Tüs taqyrybyn auystyru",
+    "themeDarkText": "Dark",
+    "themeLightText": "Light"
   },
   "ExplorerPage": {
     "kicker": "Rick and Morty API Explorer",

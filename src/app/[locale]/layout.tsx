@@ -1,12 +1,14 @@
+import LanguageSwitcher from '@/features/language-switcher/ui/LanguageSwitcher/LanguageSwitcher';
+import { APP_DISPLAY_FONT, APP_TEXT_FONT } from '@/shared/config/app-fonts';
 import { APP_METADATA } from '@/shared/config/app-metadata';
 import { APP_ROUTES } from '@/shared/config/app-routes';
-import { APP_DISPLAY_FONT, APP_TEXT_FONT } from '@/shared/config/app-fonts';
 import { cn } from '@/shared/lib/cn';
-import LanguageSwitcher from '@/features/language-switcher/ui/LanguageSwitcher/LanguageSwitcher';
 import { APP_SHELL_CLASS_NAMES } from '@/widgets/app-shell/app-shell.styles';
 import { Link } from '@/i18n/navigation';
-import type { AppLocale } from '@/i18n/routing';
-import { routing } from '@/i18n/routing';
+import { routing, type AppLocale } from '@/i18n/routing';
+import ThemeSwitcher from '@/features/theme/ui/ThemeSwitcher/ThemeSwitcher';
+import { readAppTheme } from '@/features/theme/model/theme.server';
+import { APP_THEME } from '@/features/theme/model/theme.constants';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import {
   getMessages,
@@ -36,50 +38,80 @@ export default async function LocaleLayout({
   params,
 }: LocaleLayoutProps) {
   const { locale } = await params;
-  const currentLocale = locale as AppLocale;
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
+  const currentLocale = locale as AppLocale;
+
   setRequestLocale(locale);
 
+  const theme = await readAppTheme();
+  const isLightTheme = theme === APP_THEME.light;
   const messages = await getMessages();
   const t = await getTranslations('Layout');
 
   return (
-    <html lang={locale}>
+    <html lang={locale} data-theme={theme}>
       <body
         className={cn(
           APP_SHELL_CLASS_NAMES.body,
+          isLightTheme
+            ? APP_SHELL_CLASS_NAMES.bodyThemeLight
+            : APP_SHELL_CLASS_NAMES.bodyThemeDark,
           APP_TEXT_FONT.variable,
           APP_DISPLAY_FONT.variable
         )}
       >
         <NextIntlClientProvider messages={messages}>
-          <div className={APP_SHELL_CLASS_NAMES.shell}>
-            <header className={APP_SHELL_CLASS_NAMES.header}>
+          <div
+            className={cn(
+              APP_SHELL_CLASS_NAMES.shell,
+              isLightTheme && APP_SHELL_CLASS_NAMES.shellThemeLight
+            )}
+          >
+            <header
+              className={cn(
+                APP_SHELL_CLASS_NAMES.header,
+                isLightTheme && APP_SHELL_CLASS_NAMES.headerThemeLight
+              )}
+            >
               <div className={APP_SHELL_CLASS_NAMES.headerInner}>
                 <Link
-                  className={APP_SHELL_CLASS_NAMES.brand}
+                  className={cn(
+                    APP_SHELL_CLASS_NAMES.brand,
+                    isLightTheme && APP_SHELL_CLASS_NAMES.brandThemeLight
+                  )}
                   href={APP_ROUTES.explorer}
                 >
                   {t('brand')}
                 </Link>
 
                 <nav
-                  className={APP_SHELL_CLASS_NAMES.navigation}
+                  className={cn(
+                    APP_SHELL_CLASS_NAMES.navigation,
+                    isLightTheme && APP_SHELL_CLASS_NAMES.navigationThemeLight
+                  )}
                   aria-label={t('navigationLabel')}
                 >
                   <Link
-                    className={APP_SHELL_CLASS_NAMES.navigationLink}
+                    className={cn(
+                      APP_SHELL_CLASS_NAMES.navigationLink,
+                      isLightTheme &&
+                        APP_SHELL_CLASS_NAMES.navigationLinkThemeLight
+                    )}
                     href={APP_ROUTES.explorer}
                   >
                     {t('explorer')}
                   </Link>
 
                   <Link
-                    className={APP_SHELL_CLASS_NAMES.navigationLink}
+                    className={cn(
+                      APP_SHELL_CLASS_NAMES.navigationLink,
+                      isLightTheme &&
+                        APP_SHELL_CLASS_NAMES.navigationLinkThemeLight
+                    )}
                     href={APP_ROUTES.about}
                   >
                     {t('about')}
@@ -91,9 +123,15 @@ export default async function LocaleLayout({
                     currentLocale={currentLocale}
                     label={t('languageLabel')}
                   />
-                </div>
 
-                <div className={APP_SHELL_CLASS_NAMES.actions} />
+                  <ThemeSwitcher
+                    currentTheme={theme}
+                    label={t('themeLabel')}
+                    themeText={
+                      isLightTheme ? t('themeLightText') : t('themeDarkText')
+                    }
+                  />
+                </div>
               </div>
             </header>
 
