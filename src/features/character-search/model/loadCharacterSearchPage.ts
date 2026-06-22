@@ -1,4 +1,4 @@
-import { fetchCharacterPage } from '@/entities/character';
+import { fetchCharacterPage } from '@/entities/character/api/characterApi';
 import type { CharacterResultsState } from './character-search-results.types';
 import { CHARACTER_SEARCH_PAGE_ERROR_MESSAGES } from './loadCharacterSearchPage.constants';
 import type { CharacterSearchParams } from './character-search-params.types';

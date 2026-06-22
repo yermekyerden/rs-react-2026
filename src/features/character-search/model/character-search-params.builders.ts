@@ -1,5 +1,5 @@
+import { CHARACTER_DEFAULTS } from '@/entities/character/model/character.constants';
 import { APP_ROUTES } from '@/shared/config/app-routes';
-import { CHARACTER_DEFAULTS } from '@/entities/character';
 import { CHARACTER_SEARCH_PARAM } from './character-search-params.constants';
 import type {
   CharacterSearchHrefOptions,
@@ -36,12 +36,13 @@ export function createLocalizedCharacterSearchUrl({
     page,
     searchTerm,
   });
+  const localizedRootHref = `/${locale}`;
 
   if (href === APP_ROUTES.explorer) {
-    return `/${locale}`;
+    return localizedRootHref;
   }
 
-  return `/${locale}${href}`;
+  return `${localizedRootHref}${href.slice(APP_ROUTES.explorer.length)}`;
 }
 
 function createCharacterSearchParams({

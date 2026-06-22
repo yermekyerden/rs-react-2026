@@ -1,4 +1,4 @@
-import { fetchCharacterDetails } from '@/entities/character';
+import { fetchCharacterDetails } from '@/entities/character/api/characterApi';
 import { CHARACTER_DETAILS_ERROR_MESSAGES } from './loadCharacterDetails.constants';
 import type { CharacterDetailsState } from './character-details-results.types';
 

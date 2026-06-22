@@ -1,4 +1,4 @@
-import { CHARACTER_DEFAULTS } from '@/entities/character';
+import { CHARACTER_DEFAULTS } from '@/entities/character/model/character.constants';
 import type { NextSearchParams } from '@/features/character-search/model/character-search-params.types';
 import {
   CHARACTER_SELECTION,

@@ -1,4 +1,4 @@
-import { CHARACTER_DEFAULTS } from '@/entities/character';
+import { CHARACTER_DEFAULTS } from '@/entities/character/model/character.constants';
 import { CHARACTER_SEARCH_PARAM } from './character-search-params.constants';
 import type {
   CharacterSearchParams,
