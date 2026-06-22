@@ -39,4 +39,12 @@ describe('parseSelectedCharacterIds', () => {
 
     expect(selectedCharacterIds).toEqual([]);
   });
+
+  it('returns empty selection when selected param array is empty', () => {
+    const selectedCharacterIds = parseSelectedCharacterIds({
+      selected: [],
+    });
+
+    expect(selectedCharacterIds).toEqual([]);
+  });
 });

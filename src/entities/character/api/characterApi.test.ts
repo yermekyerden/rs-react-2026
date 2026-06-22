@@ -102,6 +102,32 @@ describe('characterApi', () => {
         'The portal refused the request. You may be switching dimensions too fast. Wait a moment and try again.'
       );
     });
+
+    it('throws network or rate limit message for 429 response', async () => {
+      fetchMock.mockResolvedValue(new Response(null, { status: 429 }));
+
+      await expect(
+        fetchCharacterPage({
+          page: 1,
+          searchTerm: 'Rick',
+        })
+      ).rejects.toThrow(
+        'The portal refused the request. You may be switching dimensions too fast. Wait a moment and try again.'
+      );
+    });
+
+    it('throws generic message for unexpected page response status', async () => {
+      fetchMock.mockResolvedValue(new Response(null, { status: 500 }));
+
+      await expect(
+        fetchCharacterPage({
+          page: 1,
+          searchTerm: 'Rick',
+        })
+      ).rejects.toThrow(
+        'Could not load characters from the API. Please try again later.'
+      );
+    });
   });
 
   describe('fetchCharacterDetails', () => {
@@ -129,6 +155,22 @@ describe('characterApi', () => {
         {
           cache: 'no-store',
         }
+      );
+    });
+
+    it('throws not found message for missing character details', async () => {
+      fetchMock.mockResolvedValue(new Response(null, { status: 404 }));
+
+      await expect(fetchCharacterDetails(999)).rejects.toThrow(
+        'No characters found for this search. Maybe the portal opened into an empty dimension.'
+      );
+    });
+
+    it('throws generic message for unexpected details response status', async () => {
+      fetchMock.mockResolvedValue(new Response(null, { status: 500 }));
+
+      await expect(fetchCharacterDetails(1)).rejects.toThrow(
+        'Could not load characters from the API. Please try again later.'
       );
     });
   });

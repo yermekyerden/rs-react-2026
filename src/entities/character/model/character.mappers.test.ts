@@ -42,4 +42,12 @@ describe('mapCharacterDtoToDetailsModel', () => {
 
     expect(characterDetails).toEqual(testCharacterDetails);
   });
+
+  it('keeps provided character type in details model', () => {
+    const characterDetails = mapCharacterDtoToDetailsModel(
+      testUnknownCharacterDto
+    );
+
+    expect(characterDetails.type).toBe('Parasite');
+  });
 });

@@ -67,4 +67,18 @@ describe('parseCharacterSearchParams', () => {
       searchTerm: 'Beth',
     });
   });
+
+  it('uses default values when search param arrays are empty', () => {
+    const searchParams = parseCharacterSearchParams({
+      details: [],
+      page: [],
+      search: [],
+    });
+
+    expect(searchParams).toEqual({
+      detailsCharacterId: null,
+      page: 1,
+      searchTerm: '',
+    });
+  });
 });
