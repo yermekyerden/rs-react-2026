@@ -45,7 +45,11 @@
     "previousPage": "Aldyñğy",
     "nextPage": "Kelesı",
     "pageSummary": "{currentPage}/{totalPages} bet",
-    "exportSelected": "Tañdalğandardy CSV retınde eksporttau"
+    "exportSelected": "CSV jükteu",
+    "clearSelection": "Tañdaudy tazalau",
+    "selectedKicker": "Tañdalğan dossier",
+    "selectedSummary": "{selectedCount} keiıpker tañdaldy",
+    "selectedDescription": "Tañdalğan keiıpkerler better arasında auysqanda URL işınde saqtalady."
   },
   "CharacterCard": {
     "cardAriaLabel": "{characterName} keiıpker dossier",

@@ -45,7 +45,11 @@
     "previousPage": "Previous",
     "nextPage": "Next",
     "pageSummary": "Page {currentPage} of {totalPages}",
-    "exportSelected": "Export selected CSV"
+    "exportSelected": "Download CSV",
+    "clearSelection": "Clear selection",
+    "selectedKicker": "Selected dossiers",
+    "selectedSummary": "{selectedCount} characters selected",
+    "selectedDescription": "Selected characters stay in the URL while you navigate between pages."
   },
   "CharacterCard": {
     "cardAriaLabel": "{characterName} character dossier",

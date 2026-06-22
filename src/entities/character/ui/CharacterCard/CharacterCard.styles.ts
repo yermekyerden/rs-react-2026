@@ -8,7 +8,7 @@ export const CHARACTER_CARD_CLASS_NAMES = {
   image:
     'object-cover object-center transition duration-300 group-hover:scale-105',
   statusBadge:
-    'absolute left-3 top-3 z-10 rounded-full border px-3 py-1 text-xs font-black uppercase tracking-[0.14em] shadow-[0_0_22px_rgba(52,211,153,0.18)] backdrop-blur-xl',
+    'absolute left-3 top-3 z-10 rounded-full border px-3 py-1 text-xs font-black uppercase tracking-[0.14em] backdrop-blur-xl',
   selectionSlot: 'absolute right-3 top-3 z-10',
   content: 'grid flex-1 grid-rows-[auto_minmax(0,1fr)_auto] gap-4 p-5 pt-2',
   name: 'line-clamp-2 text-xl font-black leading-tight tracking-tight text-slate-50',
@@ -17,24 +17,39 @@ export const CHARACTER_CARD_CLASS_NAMES = {
   metaLabel: 'text-xs font-black uppercase tracking-[0.14em] text-slate-500',
   metaValue: 'text-sm font-bold leading-5 text-slate-200',
   detailsLink:
-    'inline-flex min-h-10 items-center justify-center rounded-2xl border border-emerald-300/40 bg-emerald-300/15 px-4 text-sm font-black uppercase tracking-[0.1em] text-emerald-100 transition hover:bg-emerald-300/25 focus:outline-none focus:ring-2 focus:ring-emerald-300',
+    'inline-flex min-h-10 items-center justify-center rounded-2xl border bg-slate-950/55 px-4 text-sm font-black uppercase tracking-[0.1em] transition focus:outline-none focus:ring-2',
 } as const;
 
 export const CHARACTER_CARD_STATUS_CLASS_NAMES: Record<
   CharacterStatus,
   string
 > = {
-  [CHARACTER_STATUS.alive]: 'border-emerald-300/45 hover:border-emerald-200/80',
-  [CHARACTER_STATUS.dead]: 'border-red-300/45 hover:border-red-200/80',
-  [CHARACTER_STATUS.unknown]: 'border-slate-300/30 hover:border-slate-100/60',
+  [CHARACTER_STATUS.alive]:
+    'border-emerald-300/45 shadow-[0_0_34px_rgba(52,211,153,0.08)] hover:border-emerald-200/80 hover:shadow-[0_0_38px_rgba(52,211,153,0.16)]',
+  [CHARACTER_STATUS.dead]:
+    'border-red-300/45 shadow-[0_0_34px_rgba(248,113,113,0.08)] hover:border-red-200/80 hover:shadow-[0_0_38px_rgba(248,113,113,0.16)]',
+  [CHARACTER_STATUS.unknown]:
+    'border-slate-300/35 shadow-[0_0_34px_rgba(148,163,184,0.06)] hover:border-slate-100/60 hover:shadow-[0_0_38px_rgba(148,163,184,0.12)]',
 };
 
 export const CHARACTER_CARD_BADGE_CLASS_NAMES: Record<CharacterStatus, string> =
   {
     [CHARACTER_STATUS.alive]:
-      'border-emerald-100/70 bg-emerald-300/45 text-emerald-950',
+      'border-emerald-300/45 bg-slate-950/80 text-emerald-300 shadow-[0_0_22px_rgba(52,211,153,0.18)]',
     [CHARACTER_STATUS.dead]:
-      'border-red-100/70 bg-red-400/45 text-red-50 shadow-[0_0_22px_rgba(248,113,113,0.18)]',
+      'border-red-300/45 bg-slate-950/80 text-red-300 shadow-[0_0_22px_rgba(248,113,113,0.18)]',
     [CHARACTER_STATUS.unknown]:
-      'border-slate-100/60 bg-slate-200/30 text-slate-50 shadow-[0_0_22px_rgba(226,232,240,0.12)]',
+      'border-slate-300/45 bg-slate-950/80 text-slate-300 shadow-[0_0_22px_rgba(148,163,184,0.14)]',
   };
+
+export const CHARACTER_CARD_DETAILS_LINK_CLASS_NAMES: Record<
+  CharacterStatus,
+  string
+> = {
+  [CHARACTER_STATUS.alive]:
+    'border-emerald-300/35 text-emerald-300 hover:border-emerald-200/70 hover:bg-emerald-300/10 focus:ring-emerald-300',
+  [CHARACTER_STATUS.dead]:
+    'border-red-300/35 text-red-300 hover:border-red-200/70 hover:bg-red-300/10 focus:ring-red-300',
+  [CHARACTER_STATUS.unknown]:
+    'border-slate-300/25 text-slate-300 hover:border-slate-100/60 hover:bg-slate-300/10 focus:ring-slate-300',
+};

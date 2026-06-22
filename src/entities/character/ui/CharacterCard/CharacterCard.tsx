@@ -7,6 +7,7 @@ import { CHARACTER_CARD_IMAGE } from './CharacterCard.constants';
 import {
   CHARACTER_CARD_BADGE_CLASS_NAMES,
   CHARACTER_CARD_CLASS_NAMES,
+  CHARACTER_CARD_DETAILS_LINK_CLASS_NAMES,
   CHARACTER_CARD_STATUS_CLASS_NAMES,
 } from './CharacterCard.styles';
 
@@ -41,6 +42,10 @@ export default function CharacterCard({
   const badgeClassName = cn(
     CHARACTER_CARD_CLASS_NAMES.statusBadge,
     CHARACTER_CARD_BADGE_CLASS_NAMES[character.status]
+  );
+  const detailsLinkClassName = cn(
+    CHARACTER_CARD_CLASS_NAMES.detailsLink,
+    CHARACTER_CARD_DETAILS_LINK_CLASS_NAMES[character.status]
   );
 
   return (
@@ -101,7 +106,7 @@ export default function CharacterCard({
         </dl>
 
         <Link
-          className={CHARACTER_CARD_CLASS_NAMES.detailsLink}
+          className={detailsLinkClassName}
           href={detailsHref}
           aria-label={copy.openDetailsLabel}
         >

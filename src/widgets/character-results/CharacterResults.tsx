@@ -111,15 +111,6 @@ export default async function CharacterResults({
               totalCount: characterPage.totalCount,
             })}
           </p>
-
-          {hasSelectedCharacters ? (
-            <a
-              className={CHARACTER_RESULTS_CLASS_NAMES.exportLink}
-              href={createCsvExportHref(selectedCharacterIds)}
-            >
-              {t('exportSelected')}
-            </a>
-          ) : null}
         </div>
       </header>
 
@@ -163,6 +154,7 @@ export default async function CharacterResults({
                       href={selectionHref}
                       isSelected={isSelected}
                       selectedLabel={characterCardTranslations('selectedText')}
+                      status={character.status}
                       unselectedLabel={characterCardTranslations('selectText')}
                     />
                   }
@@ -204,7 +196,14 @@ export default async function CharacterResults({
               >
                 {t('previousPage')}
               </Link>
-            ) : null}
+            ) : (
+              <span
+                className={CHARACTER_RESULTS_CLASS_NAMES.paginationLinkDisabled}
+                aria-disabled="true"
+              >
+                {t('previousPage')}
+              </span>
+            )}
 
             <p className={CHARACTER_RESULTS_CLASS_NAMES.paginationText}>
               {t('pageSummary', {
@@ -226,8 +225,54 @@ export default async function CharacterResults({
               >
                 {t('nextPage')}
               </Link>
-            ) : null}
+            ) : (
+              <span
+                className={CHARACTER_RESULTS_CLASS_NAMES.paginationLinkDisabled}
+                aria-disabled="true"
+              >
+                {t('nextPage')}
+              </span>
+            )}
           </nav>
+
+          {hasSelectedCharacters ? (
+            <aside className={CHARACTER_RESULTS_CLASS_NAMES.selectedPanel}>
+              <div>
+                <p className={CHARACTER_RESULTS_CLASS_NAMES.selectedKicker}>
+                  {t('selectedKicker')}
+                </p>
+
+                <p className={CHARACTER_RESULTS_CLASS_NAMES.selectedSummary}>
+                  {t('selectedSummary', {
+                    selectedCount: selectedCharacterIds.length,
+                  })}
+                </p>
+
+                <p
+                  className={CHARACTER_RESULTS_CLASS_NAMES.selectedDescription}
+                >
+                  {t('selectedDescription')}
+                </p>
+              </div>
+
+              <div className={CHARACTER_RESULTS_CLASS_NAMES.selectedActions}>
+                <Link
+                  className={CHARACTER_RESULTS_CLASS_NAMES.clearSelectionLink}
+                  href={createClearSelectionHref(searchParams)}
+                  scroll={false}
+                >
+                  {t('clearSelection')}
+                </Link>
+
+                <a
+                  className={CHARACTER_RESULTS_CLASS_NAMES.exportLink}
+                  href={createCsvExportHref(selectedCharacterIds)}
+                >
+                  {t('exportSelected')}
+                </a>
+              </div>
+            </aside>
+          ) : null}
         </footer>
       ) : null}
     </section>
@@ -296,6 +341,14 @@ function createPersistentSearchHref({
   return appendSelectedCharactersToHref({
     href,
     selectedCharacterIds,
+  });
+}
+
+function createClearSelectionHref(searchParams: CharacterSearchParams): string {
+  return createCharacterSearchHref({
+    detailsCharacterId: searchParams.detailsCharacterId,
+    page: searchParams.page,
+    searchTerm: searchParams.searchTerm,
   });
 }
 
