@@ -27,6 +27,7 @@ export default function CharacterSelectionToggle({
     <Link
       className={className}
       href={href}
+      scroll={false}
       aria-label={isSelected ? selectedLabel : unselectedLabel}
     >
       <span aria-hidden="true">

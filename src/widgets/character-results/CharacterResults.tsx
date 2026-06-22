@@ -7,7 +7,10 @@ import {
 import { createCharacterSearchHref } from '@/features/character-search/model/character-search-params.builders';
 import type { CharacterSearchParams } from '@/features/character-search/model/character-search-params.types';
 import type { CharacterResultsState } from '@/features/character-search/model/character-search-results.types';
-import { createCharacterSelectionHref } from '@/features/character-selection/model/character-selection.builders';
+import {
+  appendSelectedCharactersToHref,
+  createCharacterSelectionHref,
+} from '@/features/character-selection/model/character-selection.builders';
 import {
   CHARACTER_SELECTION,
   CHARACTER_SELECTION_PARAM,
@@ -124,10 +127,13 @@ export default async function CharacterResults({
         <ul className={CHARACTER_RESULTS_CLASS_NAMES.grid}>
           {characterPage.characters.map((character, characterIndex) => {
             const isSelected = selectedCharacterIds.includes(character.id);
-            const detailsHref = createCharacterSearchHref({
-              detailsCharacterId: character.id,
-              page: characterPage.currentPage,
-              searchTerm: searchParams.searchTerm,
+            const detailsHref = createPersistentSearchHref({
+              href: createCharacterSearchHref({
+                detailsCharacterId: character.id,
+                page: characterPage.currentPage,
+                searchTerm: searchParams.searchTerm,
+              }),
+              selectedCharacterIds,
             });
             const selectionHref = createCharacterSelectionHref({
               characterId: character.id,
@@ -188,9 +194,12 @@ export default async function CharacterResults({
             {hasPreviousPage ? (
               <Link
                 className={CHARACTER_RESULTS_CLASS_NAMES.paginationLink}
-                href={createCharacterSearchHref({
-                  page: characterPage.currentPage - 1,
-                  searchTerm: searchParams.searchTerm,
+                href={createPersistentSearchHref({
+                  href: createCharacterSearchHref({
+                    page: characterPage.currentPage - 1,
+                    searchTerm: searchParams.searchTerm,
+                  }),
+                  selectedCharacterIds,
                 })}
               >
                 {t('previousPage')}
@@ -207,9 +216,12 @@ export default async function CharacterResults({
             {hasNextPage ? (
               <Link
                 className={CHARACTER_RESULTS_CLASS_NAMES.paginationLink}
-                href={createCharacterSearchHref({
-                  page: characterPage.currentPage + 1,
-                  searchTerm: searchParams.searchTerm,
+                href={createPersistentSearchHref({
+                  href: createCharacterSearchHref({
+                    page: characterPage.currentPage + 1,
+                    searchTerm: searchParams.searchTerm,
+                  }),
+                  selectedCharacterIds,
                 })}
               >
                 {t('nextPage')}
@@ -232,6 +244,11 @@ interface CreateStatusTextOptions {
 interface CreateCharacterCardCopyOptions {
   character: CharacterCardModel;
   translations: Translator;
+}
+
+interface CreatePersistentSearchHrefOptions {
+  href: string;
+  selectedCharacterIds: number[];
 }
 
 function createStatusText({
@@ -270,6 +287,16 @@ function createCharacterCardCopy({
     openDetailsText: translations('openDetailsText'),
     speciesLabel: translations('speciesLabel'),
   };
+}
+
+function createPersistentSearchHref({
+  href,
+  selectedCharacterIds,
+}: CreatePersistentSearchHrefOptions): string {
+  return appendSelectedCharactersToHref({
+    href,
+    selectedCharacterIds,
+  });
 }
 
 function createCsvExportHref(selectedCharacterIds: number[]): string {

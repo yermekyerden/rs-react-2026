@@ -60,6 +60,7 @@ export default async function ExplorerPage({
 
       <CharacterDetailsPanel
         searchParams={parsedSearchParams}
+        selectedCharacterIds={selectedCharacterIds}
         state={characterDetailsState}
       />
 

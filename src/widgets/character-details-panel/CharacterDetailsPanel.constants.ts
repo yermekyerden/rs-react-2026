@@ -3,8 +3,11 @@ export const CHARACTER_DETAILS_PANEL = {
 } as const;
 
 export const CHARACTER_DETAILS_IMAGE = {
-  width: 320,
-  height: 320,
-  sizes: '(min-width: 1024px) 320px, 100vw',
+  fill: true,
+  sizes: '(min-width: 1280px) 22rem, (min-width: 768px) 18rem, 100vw',
   loading: 'eager',
+} as const;
+
+export const CHARACTER_DETAILS_DATE = {
+  isoDateLength: 10,
 } as const;

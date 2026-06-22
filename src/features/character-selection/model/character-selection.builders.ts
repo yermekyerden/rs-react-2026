@@ -6,6 +6,11 @@ import {
 } from './character-selection.constants';
 import type { CharacterSelectionHrefOptions } from './character-selection.types';
 
+interface SelectedCharactersHrefOptions {
+  href: string;
+  selectedCharacterIds: number[];
+}
+
 export function createCharacterSelectionHref({
   characterId,
   currentSelectedCharacterIds,
@@ -23,11 +28,21 @@ export function createCharacterSelectionHref({
     searchTerm,
   });
 
+  return appendSelectedCharactersToHref({
+    href: baseHref,
+    selectedCharacterIds,
+  });
+}
+
+export function appendSelectedCharactersToHref({
+  href,
+  selectedCharacterIds,
+}: SelectedCharactersHrefOptions): string {
   if (selectedCharacterIds.length === 0) {
-    return baseHref;
+    return href;
   }
 
-  const url = new URL(baseHref, RELATIVE_URL_BASE);
+  const url = new URL(href, RELATIVE_URL_BASE);
 
   url.searchParams.set(
     CHARACTER_SELECTION_PARAM.selected,

@@ -1,6 +1,6 @@
 export const CHARACTER_RESULTS_CLASS_NAMES = {
   panel:
-    'mx-auto mt-10 grid w-full max-w-[1760px] gap-6 rounded-[2rem] border border-slate-300/10 bg-slate-950/70 p-4 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-6 lg:p-8',
+    'grid w-full gap-6 rounded-[2rem] border border-slate-300/10 bg-slate-950/70 p-4 shadow-2xl shadow-black/20 backdrop-blur-xl sm:p-6 lg:p-8',
   header:
     'flex flex-col gap-4 border-b border-slate-300/10 pb-5 lg:flex-row lg:items-end lg:justify-between',
   headerCopy: 'min-w-0',
