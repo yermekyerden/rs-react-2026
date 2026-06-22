@@ -26,14 +26,14 @@ export const CHARACTER_RESULTS_CLASS_NAMES = {
 
   pagination: 'flex items-center gap-3',
   paginationLink:
-    'min-w-24 rounded-2xl border border-[color:var(--app-border-accent)] bg-[var(--app-accent-soft)] px-4 py-2 text-center text-base font-black text-[var(--app-accent)] transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-[var(--app-accent)]',
+    'min-w-24 rounded-2xl border border-[color:var(--app-border-accent)] bg-[var(--app-accent-soft)] px-4 py-2 text-center text-base font-black text-[var(--app-accent)] transition hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-[var(--app-accent)]',
   paginationLinkDisabled:
     'pointer-events-none min-w-24 rounded-2xl border border-[color:var(--app-border-subtle)] bg-[var(--app-control-bg)] px-4 py-2 text-center text-base font-black text-[var(--app-text-muted)] opacity-55',
   paginationText:
     'min-w-28 text-center text-base font-black text-[var(--app-text-secondary)]',
 
   selectedPanel:
-    'grid w-full gap-3 rounded-2xl border border-[color:var(--app-border-accent)] bg-[image:var(--app-selected-bg)] p-4 shadow-[0_0_24px_rgba(52,211,153,0.06)] sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center',
+    'grid w-full gap-3 rounded-2xl border border-[color:var(--app-border-accent)] bg-[image:var(--app-selected-bg)] p-4 shadow-[0_0_20px_rgb(34_197_94/0.045)] sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center',
   selectedKicker:
     'text-xs font-black uppercase tracking-[0.16em] text-[var(--app-accent)]',
   selectedSummary:
@@ -44,5 +44,5 @@ export const CHARACTER_RESULTS_CLASS_NAMES = {
   clearSelectionLink:
     'inline-flex min-h-11 items-center justify-center rounded-xl border border-[color:var(--app-border-control)] bg-[var(--app-control-bg)] px-4 text-sm font-black text-[var(--app-text-secondary)] transition hover:bg-[var(--app-accent-soft)] hover:text-[var(--app-accent)] focus:outline-none focus:ring-2 focus:ring-[var(--app-accent)]',
   exportLink:
-    'inline-flex min-h-11 items-center justify-center rounded-xl border border-[color:var(--app-border-accent)] bg-[var(--app-accent-soft)] px-4 text-sm font-black text-[var(--app-accent)] transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-[var(--app-accent)]',
+    'inline-flex min-h-11 items-center justify-center rounded-xl border border-[color:var(--app-border-accent)] bg-[var(--app-accent-soft)] px-4 text-sm font-black text-[var(--app-accent)] transition hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-[var(--app-accent)]',
 } as const;

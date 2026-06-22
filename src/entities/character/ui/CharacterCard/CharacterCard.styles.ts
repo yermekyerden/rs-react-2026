@@ -8,7 +8,7 @@ export const CHARACTER_CARD_CLASS_NAMES = {
   image:
     'object-cover object-center transition duration-300 group-hover:scale-105',
   statusBadge:
-    'absolute left-3 top-3 z-10 rounded-full border bg-[var(--app-badge-bg)] px-3 py-1 text-xs font-black uppercase tracking-[0.14em] backdrop-blur-xl',
+    'absolute left-3 top-3 z-10 rounded-full border bg-[var(--app-badge-bg)] px-3 py-1 text-xs font-black uppercase tracking-[0.14em] shadow-sm backdrop-blur-xl',
   selectionSlot: 'absolute right-3 top-3 z-10',
   content: 'grid flex-1 grid-rows-[auto_minmax(0,1fr)_auto] gap-4 p-5 pt-2',
   name: 'line-clamp-2 font-[family-name:var(--font-app-display)] text-xl font-black leading-tight tracking-tight text-[var(--app-text-primary)]',
@@ -26,21 +26,21 @@ export const CHARACTER_CARD_STATUS_CLASS_NAMES: Record<
   string
 > = {
   [CHARACTER_STATUS.alive]:
-    'border-emerald-300/45 shadow-[0_0_34px_rgba(52,211,153,0.08)] hover:border-emerald-200/80 hover:shadow-[0_0_38px_rgba(52,211,153,0.16)]',
+    'border-[color:rgb(var(--app-status-alive-rgb)/0.28)] bg-[image:radial-gradient(circle_at_top_left,rgb(var(--app-status-alive-rgb)/0.075),transparent_16rem)] shadow-[0_14px_30px_rgb(0_0_0/0.08)] hover:border-[color:rgb(var(--app-status-alive-rgb)/0.46)] hover:shadow-[0_20px_42px_rgb(0_0_0/0.1),0_0_28px_rgb(var(--app-status-alive-rgb)/0.1)]',
   [CHARACTER_STATUS.dead]:
-    'border-red-300/45 shadow-[0_0_34px_rgba(248,113,113,0.08)] hover:border-red-200/80 hover:shadow-[0_0_38px_rgba(248,113,113,0.16)]',
+    'border-[color:rgb(var(--app-status-dead-rgb)/0.28)] bg-[image:radial-gradient(circle_at_top_left,rgb(var(--app-status-dead-rgb)/0.055),transparent_16rem)] shadow-[0_14px_30px_rgb(0_0_0/0.08)] hover:border-[color:rgb(var(--app-status-dead-rgb)/0.46)] hover:shadow-[0_20px_42px_rgb(0_0_0/0.1),0_0_28px_rgb(var(--app-status-dead-rgb)/0.09)]',
   [CHARACTER_STATUS.unknown]:
-    'border-slate-400/35 shadow-[0_0_34px_rgba(148,163,184,0.06)] hover:border-slate-500/60 hover:shadow-[0_0_38px_rgba(148,163,184,0.12)]',
+    'border-[color:rgb(var(--app-status-unknown-rgb)/0.24)] bg-[image:radial-gradient(circle_at_top_left,rgb(var(--app-status-unknown-rgb)/0.045),transparent_16rem)] shadow-[0_14px_30px_rgb(0_0_0/0.07)] hover:border-[color:rgb(var(--app-status-unknown-rgb)/0.42)] hover:shadow-[0_20px_42px_rgb(0_0_0/0.09),0_0_28px_rgb(var(--app-status-unknown-rgb)/0.08)]',
 };
 
 export const CHARACTER_CARD_BADGE_CLASS_NAMES: Record<CharacterStatus, string> =
   {
     [CHARACTER_STATUS.alive]:
-      'border-emerald-300/45 text-emerald-300 shadow-[0_0_22px_rgba(52,211,153,0.18)]',
+      'border-[color:rgb(var(--app-status-alive-rgb)/0.42)] text-[rgb(var(--app-status-alive-rgb)/0.9)] shadow-[0_0_18px_rgb(var(--app-status-alive-rgb)/0.12)]',
     [CHARACTER_STATUS.dead]:
-      'border-red-300/45 text-red-300 shadow-[0_0_22px_rgba(248,113,113,0.18)]',
+      'border-[color:rgb(var(--app-status-dead-rgb)/0.42)] text-[rgb(var(--app-status-dead-rgb)/0.88)] shadow-[0_0_18px_rgb(var(--app-status-dead-rgb)/0.12)]',
     [CHARACTER_STATUS.unknown]:
-      'border-slate-400/45 text-slate-400 shadow-[0_0_22px_rgba(148,163,184,0.14)]',
+      'border-[color:rgb(var(--app-status-unknown-rgb)/0.38)] text-[rgb(var(--app-status-unknown-rgb)/0.86)] shadow-[0_0_18px_rgb(var(--app-status-unknown-rgb)/0.1)]',
   };
 
 export const CHARACTER_CARD_DETAILS_LINK_CLASS_NAMES: Record<
@@ -48,9 +48,9 @@ export const CHARACTER_CARD_DETAILS_LINK_CLASS_NAMES: Record<
   string
 > = {
   [CHARACTER_STATUS.alive]:
-    'border-emerald-300/35 text-emerald-300 hover:border-emerald-200/70 hover:bg-emerald-300/10 focus:ring-emerald-300',
+    'border-[color:rgb(var(--app-status-alive-rgb)/0.28)] text-[rgb(var(--app-status-alive-rgb)/0.86)] hover:border-[color:rgb(var(--app-status-alive-rgb)/0.48)] hover:bg-[rgb(var(--app-status-alive-rgb)/0.075)] focus:ring-[rgb(var(--app-status-alive-rgb)/0.58)]',
   [CHARACTER_STATUS.dead]:
-    'border-red-300/35 text-red-300 hover:border-red-200/70 hover:bg-red-300/10 focus:ring-red-300',
+    'border-[color:rgb(var(--app-status-dead-rgb)/0.28)] text-[rgb(var(--app-status-dead-rgb)/0.86)] hover:border-[color:rgb(var(--app-status-dead-rgb)/0.48)] hover:bg-[rgb(var(--app-status-dead-rgb)/0.065)] focus:ring-[rgb(var(--app-status-dead-rgb)/0.58)]',
   [CHARACTER_STATUS.unknown]:
-    'border-slate-400/25 text-slate-400 hover:border-slate-500/60 hover:bg-slate-300/10 focus:ring-slate-300',
+    'border-[color:rgb(var(--app-status-unknown-rgb)/0.22)] text-[rgb(var(--app-status-unknown-rgb)/0.82)] hover:border-[color:rgb(var(--app-status-unknown-rgb)/0.42)] hover:bg-[rgb(var(--app-status-unknown-rgb)/0.065)] focus:ring-[rgb(var(--app-status-unknown-rgb)/0.5)]',
 };

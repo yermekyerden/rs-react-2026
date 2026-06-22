@@ -1,7 +1,7 @@
 import { CHARACTER_STATUS, type CharacterStatus } from '@/entities/character';
 
 export const CHARACTER_SELECTION_TOGGLE_CLASS_NAMES = {
-  link: 'group grid size-8 place-items-center rounded-xl border transition backdrop-blur-xl focus:outline-none focus:ring-2',
+  link: 'group grid size-8 place-items-center rounded-xl border bg-[var(--app-status-control-bg)] shadow-sm transition backdrop-blur-xl focus:outline-none focus:ring-2 active:bg-[var(--app-status-control-bg)]',
   marker:
     'grid size-4 place-items-center rounded-[0.35rem] border text-[0.68rem] font-black leading-none transition',
 } as const;
@@ -11,11 +11,11 @@ export const CHARACTER_SELECTION_TOGGLE_IDLE_CLASS_NAMES: Record<
   string
 > = {
   [CHARACTER_STATUS.alive]:
-    'border-emerald-300/55 bg-[var(--app-status-control-bg)] text-emerald-300 shadow-[0_0_20px_rgba(52,211,153,0.18)] hover:border-emerald-200/85 hover:bg-emerald-300/10 focus:ring-emerald-300',
+    'border-[color:rgb(var(--app-status-alive-rgb)/0.38)] text-[rgb(var(--app-status-alive-rgb)/0.85)] shadow-[0_0_16px_rgb(var(--app-status-alive-rgb)/0.1)] hover:border-[color:rgb(var(--app-status-alive-rgb)/0.58)] hover:bg-[var(--app-status-control-bg)] focus:ring-[rgb(var(--app-status-alive-rgb)/0.56)]',
   [CHARACTER_STATUS.dead]:
-    'border-red-300/55 bg-[var(--app-status-control-bg)] text-red-300 shadow-[0_0_20px_rgba(248,113,113,0.18)] hover:border-red-200/85 hover:bg-red-300/10 focus:ring-red-300',
+    'border-[color:rgb(var(--app-status-dead-rgb)/0.38)] text-[rgb(var(--app-status-dead-rgb)/0.85)] shadow-[0_0_16px_rgb(var(--app-status-dead-rgb)/0.1)] hover:border-[color:rgb(var(--app-status-dead-rgb)/0.58)] hover:bg-[var(--app-status-control-bg)] focus:ring-[rgb(var(--app-status-dead-rgb)/0.56)]',
   [CHARACTER_STATUS.unknown]:
-    'border-slate-400/55 bg-[var(--app-status-control-bg)] text-slate-400 shadow-[0_0_20px_rgba(148,163,184,0.14)] hover:border-slate-500/75 hover:bg-slate-300/10 focus:ring-slate-300',
+    'border-[color:rgb(var(--app-status-unknown-rgb)/0.34)] text-[rgb(var(--app-status-unknown-rgb)/0.82)] shadow-[0_0_16px_rgb(var(--app-status-unknown-rgb)/0.08)] hover:border-[color:rgb(var(--app-status-unknown-rgb)/0.54)] hover:bg-[var(--app-status-control-bg)] focus:ring-[rgb(var(--app-status-unknown-rgb)/0.48)]',
 };
 
 export const CHARACTER_SELECTION_TOGGLE_SELECTED_CLASS_NAMES: Record<
@@ -23,11 +23,11 @@ export const CHARACTER_SELECTION_TOGGLE_SELECTED_CLASS_NAMES: Record<
   string
 > = {
   [CHARACTER_STATUS.alive]:
-    'border-emerald-300/75 bg-emerald-300/15 text-emerald-300 shadow-[0_0_28px_rgba(52,211,153,0.32)] hover:border-emerald-100/90 hover:bg-emerald-300/20 focus:ring-emerald-300',
+    'border-[color:rgb(var(--app-status-alive-rgb)/0.62)] text-[rgb(var(--app-status-alive-rgb)/0.92)] shadow-[0_0_22px_rgb(var(--app-status-alive-rgb)/0.18)] hover:border-[color:rgb(var(--app-status-alive-rgb)/0.74)] hover:bg-[var(--app-status-control-bg)] focus:ring-[rgb(var(--app-status-alive-rgb)/0.6)]',
   [CHARACTER_STATUS.dead]:
-    'border-red-300/75 bg-red-300/15 text-red-300 shadow-[0_0_28px_rgba(248,113,113,0.32)] hover:border-red-100/90 hover:bg-red-300/20 focus:ring-red-300',
+    'border-[color:rgb(var(--app-status-dead-rgb)/0.62)] text-[rgb(var(--app-status-dead-rgb)/0.92)] shadow-[0_0_22px_rgb(var(--app-status-dead-rgb)/0.18)] hover:border-[color:rgb(var(--app-status-dead-rgb)/0.74)] hover:bg-[var(--app-status-control-bg)] focus:ring-[rgb(var(--app-status-dead-rgb)/0.6)]',
   [CHARACTER_STATUS.unknown]:
-    'border-slate-400/75 bg-slate-300/15 text-slate-400 shadow-[0_0_28px_rgba(148,163,184,0.22)] hover:border-slate-500/90 hover:bg-slate-300/20 focus:ring-slate-300',
+    'border-[color:rgb(var(--app-status-unknown-rgb)/0.58)] text-[rgb(var(--app-status-unknown-rgb)/0.9)] shadow-[0_0_22px_rgb(var(--app-status-unknown-rgb)/0.14)] hover:border-[color:rgb(var(--app-status-unknown-rgb)/0.7)] hover:bg-[var(--app-status-control-bg)] focus:ring-[rgb(var(--app-status-unknown-rgb)/0.54)]',
 };
 
 export const CHARACTER_SELECTION_TOGGLE_MARKER_IDLE_CLASS_NAMES: Record<
@@ -35,11 +35,11 @@ export const CHARACTER_SELECTION_TOGGLE_MARKER_IDLE_CLASS_NAMES: Record<
   string
 > = {
   [CHARACTER_STATUS.alive]:
-    'border-emerald-300/65 bg-[var(--app-badge-bg)] group-hover:bg-emerald-300/10',
+    'border-[color:rgb(var(--app-status-alive-rgb)/0.58)] bg-[var(--app-badge-bg)] group-hover:scale-105',
   [CHARACTER_STATUS.dead]:
-    'border-red-300/65 bg-[var(--app-badge-bg)] group-hover:bg-red-300/10',
+    'border-[color:rgb(var(--app-status-dead-rgb)/0.58)] bg-[var(--app-badge-bg)] group-hover:scale-105',
   [CHARACTER_STATUS.unknown]:
-    'border-slate-400/65 bg-[var(--app-badge-bg)] group-hover:bg-slate-300/10',
+    'border-[color:rgb(var(--app-status-unknown-rgb)/0.52)] bg-[var(--app-badge-bg)] group-hover:scale-105',
 };
 
 export const CHARACTER_SELECTION_TOGGLE_MARKER_SELECTED_CLASS_NAMES: Record<
@@ -47,8 +47,9 @@ export const CHARACTER_SELECTION_TOGGLE_MARKER_SELECTED_CLASS_NAMES: Record<
   string
 > = {
   [CHARACTER_STATUS.alive]:
-    'border-emerald-300/80 bg-emerald-300/20 text-emerald-300',
-  [CHARACTER_STATUS.dead]: 'border-red-300/80 bg-red-300/20 text-red-300',
+    'border-[color:rgb(var(--app-status-alive-rgb)/0.74)] bg-[rgb(var(--app-status-alive-rgb)/0.9)] text-[var(--app-text-inverse)] shadow-[0_0_0_3px_rgb(var(--app-status-alive-rgb)/0.16),0_0_16px_rgb(var(--app-status-alive-rgb)/0.26)] group-hover:scale-105',
+  [CHARACTER_STATUS.dead]:
+    'border-[color:rgb(var(--app-status-dead-rgb)/0.74)] bg-[rgb(var(--app-status-dead-rgb)/0.9)] text-[var(--app-text-inverse)] shadow-[0_0_0_3px_rgb(var(--app-status-dead-rgb)/0.14),0_0_16px_rgb(var(--app-status-dead-rgb)/0.24)] group-hover:scale-105',
   [CHARACTER_STATUS.unknown]:
-    'border-slate-400/80 bg-slate-300/20 text-slate-400',
+    'border-[color:rgb(var(--app-status-unknown-rgb)/0.7)] bg-[rgb(var(--app-status-unknown-rgb)/0.86)] text-[var(--app-text-inverse)] shadow-[0_0_0_3px_rgb(var(--app-status-unknown-rgb)/0.12),0_0_16px_rgb(var(--app-status-unknown-rgb)/0.2)] group-hover:scale-105',
 };
